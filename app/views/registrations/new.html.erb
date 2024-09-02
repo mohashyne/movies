@@ -1,0 +1,33 @@
+<h1>Registrations for <%= link_to @movie.name, movie_path(@movie) %></h1>
+
+ <!--<%= form_with(modle: [@movie, @registration]) do |f| %>
+
+         <%= f.label :name%>
+         <%= f.text_field :name, autofocus: true %> 
+
+         <%= f.label :email%>
+         <%= f.text_field :email%> 
+
+        <%= f.label :how_heard %>
+        <%= f.text_field :how_heard %>
+
+<% end %>   -->
+
+<!-- <%= render 'reg_form', movie: @movie, registration: @registration %> -->
+
+<%= form_with(model: [@movie, @registration]) do |f| %>
+
+<%= render "movies/shared/errors", object: @registration %>
+
+         <div class="form-group">
+             <%= f.label :name%>
+             <%= f.text_field :name, autofocus: true %>
+             <%= f.label :email%>
+             <%= f.email_field :email%> 
+             
+                     <%= f.label :how_heard %>
+                     <%= f.select :how_heard, Registration::HOW_HEARD_OPTIONS, prompt: "Pick one" %>
+             
+                     <%= f.submit%>
+         </div>
+<% end %>

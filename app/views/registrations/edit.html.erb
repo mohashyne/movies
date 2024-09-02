@@ -1,0 +1,19 @@
+<!-- app/views/registrations/edit.html.erb -->
+<h2>Edit Registration</h2>
+<%= form_with(model: [@movie, @registration]) do |f| %>
+
+<%= render "movies/shared/errors", object: @registration %>
+
+         <div class="form-group">
+             <%= f.label :name%>
+             <%= f.text_field :name, autofocus: true %>
+             <%= f.label :email%>
+             <%= f.email_field :email%> 
+             
+                     <%= f.label :how_heard %>
+                     <%= f.select :how_heard, Registration::HOW_HEARD_OPTIONS, prompt: "Pick one" %>
+             
+                     <%= f.submit%>
+         </div>
+<% end %>
+

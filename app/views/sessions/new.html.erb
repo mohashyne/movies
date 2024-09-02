@@ -1,0 +1,14 @@
+<h1>Sign In</h1>
+
+<!--  we set the url to post to form_with(url: url_to_post_to) -->
+<%= form_with(url: session_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit 'Sign in' %>
+  </div>
+<% end %>

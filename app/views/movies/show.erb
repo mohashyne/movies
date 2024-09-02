@@ -1,0 +1,50 @@
+
+
+<section class="movies">
+<div class="placeholer_img" >
+<%=  image_tag @movie.image_file_name %>
+</div>
+    <div class="summary">
+      <h2><%= @movie.name %>
+       </h2>
+      <h3>by <%= @movie.actor%></h3>
+      <span class="price">
+        ShowTime: <%= @movie.starts_at.strftime("%B %d at %I:%M %P") %>
+      </span>
+      <p>
+        <%= @movie.description %>
+      </p>
+      <p>
+      Producer: <%= @movie.producer%>
+      </p>
+
+      <p>
+      Release Year: <%= @movie.release_year%>
+      </p>
+       
+      <p>
+      Networth: <%= @movie.net_worth%>
+      </p>
+      <span class="price">
+<%= price(@movie) %> &bull; <%= @movie.capacity == 1 ? "per seat" : pluralize(@movie.capacity, "seat")  %>
+      </span>
+
+      <div>
+   <span class="update-btn">
+           <!--  <%= link_to 'Register', new_movie_registration_path(@movie), class: "btn reg-btn"  %> --> <%= register_or_sold_out(@movie)  %>
+      </span>
+
+      <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
+      </div>
+      
+      <span class="update-btn">   
+         <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
+        <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
+
+         <%= link_to "Delete Movie", @movie,
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
+      </span>
+    
+    </div>
+</section>
+

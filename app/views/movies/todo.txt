@@ -1,0 +1,3 @@
+<%= #  TODO: Add a delete button to delete the movie, fix caching issues %>
+ <%= #data: is a hash that adds HTML attributes to the link, specifically for use with Turbo (a part of Hotwire in Rails). turbo_method: :delete makes the link submit a DELETE request instead of the default GET. %>
+<%=# link_to "Delete", delete_movie_path(@movie), data: { turbo_method: :delete, turbo_confirm: "Really?!"}, class: "btn" %>

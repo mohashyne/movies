@@ -1,0 +1,17 @@
+  <% if  flash[:notice]%>
+    <div class="content">
+    <!--tto avoid displaying the div if no update
+    we wrap it with an if statement -->
+    <div class="flash notice">
+    <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+      <% if  flash[:alert]%>
+    <div class="content">
+    <!--tto avoid displaying the div if no update
+    we wrap it with an if statement -->
+    <div class="flash alert">
+    <%= flash[:alert] %>
+    </div>
+    <% end %>

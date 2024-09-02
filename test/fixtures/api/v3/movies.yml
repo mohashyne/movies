@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  actor: MyString
+  producer: MyString
+  description: MyText
+  net_worth: 9.99
+  starts_at: 2024-08-16 10:46:20
+  price: 9.99
+  release_year: 1
+
+two:
+  name: MyString
+  actor: MyString
+  producer: MyString
+  description: MyText
+  net_worth: 9.99
+  starts_at: 2024-08-16 10:46:20
+  price: 9.99
+  release_year: 1
