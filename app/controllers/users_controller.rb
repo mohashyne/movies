@@ -38,6 +38,8 @@ class UsersController < ApplicationController
             @user = User.new(user_params)
     
          if @user.save
+             # log user into session once the user is created
+              session[:user_id] = @user.id
             redirect_to @user,
             notice: "Thanks for registering!"
          else
