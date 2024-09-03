@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   # before_action :require_signin, only: [:index, :show, :edit, :update, :destroy]
 
   # INSTEAD OF THE ABOVE , WE CAN USE SOMETHING BETTER BELOW:
+  # the first action code will require signin for all actions except new and create
+  # the second action code will be required to run before the edit , update or destroy
+  # method runs
 
    before_action :require_signin, except: [:new, :create]
    before_action :require_correct_user, only: [:edit, :update, :destroy]
@@ -79,9 +82,7 @@ class UsersController < ApplicationController
             # we can call it here and use it in the require_correct_user method
             # and also avvoid duplication in other methods above
             @user = User.find(params[:id])
-            unless current_user == @user
-              redirect_to movies_url
-            end
+              redirect_to movies_url  unless current_user?(@user)
           end
 
           # instead of defining this method here , we define it in the application controller to make it available to all controllers

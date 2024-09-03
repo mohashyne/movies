@@ -25678,3 +25678,1093 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 25ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 5855)
 
 
+Started GET "/users/" for 127.0.0.1 at 2024-09-03 19:05:35 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1312)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 1959)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 43.7ms | Allocations: 19007)
+Completed 200 OK in 95ms (Views: 47.6ms | ActiveRecord: 12.3ms | Allocations: 27357)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2024-09-03 19:05:42 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1321)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1423)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 8.4ms | Allocations: 2780)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>User Details</h1>
+
+<section class="summary">
+  <h1>
+    <strong>Username: <%= @user.name %></strong>
+  </h1>
+  <h2>Email: <%= mail_to(@user.email) %></h2>
+  <ul>
+    <li>created_at: <%= @user.created_at %></li>
+    <li>updated_at: <%= @user.updated_at %></li>
+  </ul>
+<%= if current_user = @user %>
+  <span class="user-btn">
+    <%= link_to "Edit Account", edit_user_path(@user) %>
+  </span>
+    <span class="user-btn">
+   <%= link_to "Delet Account", @user,
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> 
+      </span>
+      <% end %>
+</section>
+
+):
+1:    <h1>User Details</h1>
+2:    
+3:    <section class="summary">
+4:      <h1>
+5:        <strong>Username: <%= @user.name %></strong>
+6:      </h1>
+7:      <h2>Email: <%= mail_to(@user.email) %></h2>
+8:      <ul>
+9:        <li>created_at: <%= @user.created_at %></li>
+10:        <li>updated_at: <%= @user.updated_at %></li>
+11:      </ul>
+12:    <%= if current_user = @user %>
+13:      <span class="user-btn">
+14:        <%= link_to "Edit Account", edit_user_path(@user) %>
+15:      </span>
+16:        <span class="user-btn">
+17:       <%= link_to "Delet Account", @user,
+18:        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> 
+19:          </span>
+20:          <% end %>
+21:    </section>
+  
+app/views/users/show.html.erb:12: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/users/show.html.erb:24: syntax error, unexpected `end', expecting ')'
+Started GET "/users/4" for 127.0.0.1 at 2024-09-03 19:06:17 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 439)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.1ms | Allocations: 1959)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 18126)
+Completed 200 OK in 63ms (Views: 40.9ms | ActiveRecord: 12.1ms | Allocations: 24365)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2024-09-03 19:06:50 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 626)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.0ms | Allocations: 2004)
+  Rendered layouts/_flash.erb (Duration: 1.2ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 18272)
+Completed 200 OK in 50ms (Views: 35.2ms | ActiveRecord: 5.0ms | Allocations: 24421)
+
+
+Started GET "/users/" for 127.0.0.1 at 2024-09-03 19:07:09 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1254)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 1528)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4126)
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 0.6ms | Allocations: 5040)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-03 19:07:14 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 432)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 7.0ms | Allocations: 1528)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3300)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.4ms | Allocations: 4563)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-03 19:12:49 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:96:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 741)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 4.8ms | Allocations: 1959)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 18428)
+Completed 200 OK in 91ms (Views: 35.0ms | ActiveRecord: 8.9ms | Allocations: 27137)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:13:14 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 437)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:13:14 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:13:14.683919') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 22.1ms | Allocations: 8266)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 526)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 10224)
+Completed 200 OK in 36ms (Views: 24.0ms | ActiveRecord: 5.8ms | Allocations: 11751)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:14:04 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2522)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4408)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 4827)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 19:14:21 +0100
+Processing by UsersController#index as HTML
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as :require_signin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 357)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:14:21 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2302)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4189)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4427)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:14:41 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:12:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 2106)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3981)
+Completed 422 Unprocessable Content in 222ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 5005)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:14:48 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"roles@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "roles@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:12:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 2106)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3981)
+Completed 422 Unprocessable Content in 10ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 4849)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:14:57 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:12:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 2106)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3981)
+Completed 422 Unprocessable Content in 223ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 4893)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:15:11 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:12:in `create'
+Redirected to http://127.0.0.1:3000/users/8
+Completed 302 Found in 215ms (ActiveRecord: 0.3ms | Allocations: 868)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-03 19:15:12 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:96:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 429)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 4.0ms | Allocations: 1528)
+  Rendered layouts/_flash.erb (Duration: 0.2ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3302)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.4ms | Allocations: 4554)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:16:57 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 446)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:16:57 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:16:57.761424') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 15.9ms | Allocations: 8225)
+  Rendered layouts/_header.html.erb (Duration: 7.5ms | Allocations: 923)
+  Rendered layouts/_flash.erb (Duration: 16.8ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 14.0ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 93.8ms | Allocations: 24907)
+Completed 200 OK in 101ms (Views: 92.7ms | ActiveRecord: 3.6ms | Allocations: 27090)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:17:01 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2565)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4451)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 4869)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:17:16 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 2.7ms | Allocations: 4662)
+
+
+  
+NameError (undefined local variable or method `users' for #<SessionsController:0x000000001351f0>):
+  
+app/controllers/sessions_controller.rb:16:in `create'
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:17:37 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:12:in `create'
+Redirected to http://127.0.0.1:3000/users
+Completed 302 Found in 229ms (ActiveRecord: 2.8ms | Allocations: 4697)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 19:17:37 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1305)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 4.8ms | Allocations: 1959)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 19000)
+Completed 200 OK in 41ms (Views: 36.6ms | ActiveRecord: 0.5ms | Allocations: 21189)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:27:29 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 3ms (ActiveRecord: 0.0ms | Allocations: 461)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:27:30 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (31.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:27:30.182122') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 62.1ms | Allocations: 10887)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 926)
+  Rendered layouts/_flash.erb (Duration: 0.9ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 1.2ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 99.0ms | Allocations: 27532)
+Completed 200 OK in 112ms (Views: 49.0ms | ActiveRecord: 53.7ms | Allocations: 29995)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:27:34 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2556)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4445)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 4863)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:30:51 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users/8
+Completed 302 Found in 221ms (ActiveRecord: 5.3ms | Allocations: 4765)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-03 19:30:52 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:96:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 713)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.9ms | Allocations: 1959)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 2.2ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 18400)
+Completed 200 OK in 42ms (Views: 37.4ms | ActiveRecord: 0.5ms | Allocations: 20999)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:35:53 +0100
+  
+SyntaxError (/Users/muhammadibnsalyhu/Code/EcoSearch_Team/Eco/movies/app/controllers/application_controller.rb:35: syntax error, unexpected end-of-input):
+  
+app/controllers/application_controller.rb:35: syntax error, unexpected end-of-input
+app/controllers/sessions_controller.rb:1:in `<main>'
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:36:32 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 3ms (ActiveRecord: 0.0ms | Allocations: 474)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:36:32 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:36:32.667890') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 17.3ms | Allocations: 8303)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 921)
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 43.7ms | Allocations: 25013)
+Completed 200 OK in 55ms (Views: 43.1ms | ActiveRecord: 4.1ms | Allocations: 27213)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:36:35 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2563)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4449)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.0ms | Allocations: 4867)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:36:58 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users/8
+Completed 302 Found in 254ms (ActiveRecord: 4.5ms | Allocations: 4269)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-03 19:36:58 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:96:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 706)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 4.1ms | Allocations: 1539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 3604)
+Completed 200 OK in 19ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 5737)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:38:30 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 455)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:38:30 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:38:30.864839') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 16.3ms | Allocations: 8265)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 921)
+  Rendered layouts/_flash.erb (Duration: 0.7ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 24973)
+Completed 200 OK in 49ms (Views: 40.6ms | ActiveRecord: 4.0ms | Allocations: 27165)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:38:34 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2544)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 4430)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 4848)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:38:47 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users/8
+Completed 302 Found in 225ms (ActiveRecord: 2.4ms | Allocations: 4345)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-03 19:38:47 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:96:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 694)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.1ms | Allocations: 1539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3592)
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 0.5ms | Allocations: 5724)
+
+
+Started GET "/users/" for 127.0.0.1 at 2024-09-03 19:41:18 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1254)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.3ms | Allocations: 1528)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 4127)
+Completed 200 OK in 25ms (Views: 19.4ms | ActiveRecord: 0.5ms | Allocations: 5029)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:41:22 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 4ms (ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:41:22 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (1.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:41:23.025972') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 19.6ms | Allocations: 2740)
+  Rendered layouts/_header.html.erb (Duration: 3.7ms | Allocations: 514)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 4688)
+Completed 200 OK in 34ms (Views: 31.0ms | ActiveRecord: 1.5ms | Allocations: 4978)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 19:41:31 +0100
+Processing by UsersController#index as HTML
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as :require_signin rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 390)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:41:31 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2315)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4202)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4440)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:41:42 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users
+Completed 302 Found in 224ms (ActiveRecord: 0.5ms | Allocations: 791)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 19:41:43 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1069)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.9ms | Allocations: 1528)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3946)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.4ms | Allocations: 4829)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:42:30 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 446)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:42:30 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:42:30.829772') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 19.8ms | Allocations: 8303)
+  Rendered layouts/_header.html.erb (Duration: 3.8ms | Allocations: 921)
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 49.4ms | Allocations: 25017)
+Completed 200 OK in 58ms (Views: 47.5ms | ActiveRecord: 5.8ms | Allocations: 27217)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 19:42:33 +0100
+Processing by UsersController#index as HTML
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as :require_signin rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 482)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:42:33 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2592)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4483)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 4900)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:42:45 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2106)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 3981)
+Completed 422 Unprocessable Content in 408ms (Views: 15.7ms | ActiveRecord: 3.3ms | Allocations: 8353)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-03 19:43:09 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users
+Completed 302 Found in 218ms (ActiveRecord: 0.2ms | Allocations: 802)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 19:43:10 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1264)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 7.1ms | Allocations: 1539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 4166)
+Completed 200 OK in 24ms (Views: 16.1ms | ActiveRecord: 0.7ms | Allocations: 5811)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-03 19:43:31 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 389)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:43:31 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:43:31.480219') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 6.2ms | Allocations: 2740)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 514)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4692)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.5ms | Allocations: 4982)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:43:40 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:43:40.809671') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 10.6ms | Allocations: 2738)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 514)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 1.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 4654)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.7ms | Allocations: 4943)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:43:43 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:43:43.186673') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 7.7ms | Allocations: 2738)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 514)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4648)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.9ms | Allocations: 4937)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2024-09-03 19:44:00 +0100
+Processing by MoviesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 7.8ms | Allocations: 213)
+  Rendered movies/partials/_form.html.erb (Duration: 13.6ms | Allocations: 3090)
+  Rendered movies/new.erb within layouts/application (Duration: 15.8ms | Allocations: 3318)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 540)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 5207)
+Completed 200 OK in 27ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 5536)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:44:03 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:44:03.889190') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 8.0ms | Allocations: 2756)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 516)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4671)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.5ms | Allocations: 4960)
+
+
+Started GET "/movies/40" for 127.0.0.1 at 2024-09-03 19:44:22 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:63:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mRegistration Count (13.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/models/movie.rb:30:in `sold_out?'
+  Rendered movies/show.erb within layouts/application (Duration: 62.2ms | Allocations: 8184)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 514)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 65.6ms | Allocations: 10123)
+Completed 200 OK in 71ms (Views: 50.1ms | ActiveRecord: 16.7ms | Allocations: 11452)
+
+
+Started GET "/movies/40/registrations" for 127.0.0.1 at 2024-09-03 19:44:41 +0100
+Processing by RegistrationsController#index as HTML
+  Parameters: {"movie_id"=>"40"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:64:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/index.html.erb within layouts/application
+  [1m[36mRegistration Load (0.2ms)[0m  [1m[34mSELECT "registrations".* FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/views/registrations/index.html.erb:5
+  Rendered registrations/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 7373)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 9455)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.5ms | Allocations: 10448)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 19:45:42 +0100
+Processing by UsersController#index as HTML
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as :require_signin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 376)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 19:45:42 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 2343)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4230)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4468)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-03 19:46:38 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-03 18:46:38.803856') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 8.5ms | Allocations: 2750)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 514)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 4678)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.5ms | Allocations: 4967)
+
+
+Started GET "/movies/40" for 127.0.0.1 at 2024-09-03 19:46:43 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:63:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mRegistration Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/models/movie.rb:30:in `sold_out?'
+  Rendered movies/show.erb within layouts/application (Duration: 4.4ms | Allocations: 1396)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 514)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3332)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 1.0ms | Allocations: 4004)
+
+
+Started GET "/movies/41" for 127.0.0.1 at 2024-09-03 19:47:07 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:63:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mRegistration Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 41]]
+  ↳ app/models/movie.rb:30:in `sold_out?'
+  Rendered movies/show.erb within layouts/application (Duration: 4.5ms | Allocations: 1385)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 3319)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 3990)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-03 19:47:27 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:63:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mRegistration Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:30:in `sold_out?'
+  Rendered movies/show.erb within layouts/application (Duration: 5.8ms | Allocations: 1410)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 3360)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 4031)
+
+
+Started GET "/movies/44/registrations/new" for 127.0.0.1 at 2024-09-03 19:47:31 +0100
+Processing by RegistrationsController#new as HTML
+  Parameters: {"movie_id"=>"44"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:64:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered registrations/_reg_form.html.erb (Duration: 25.1ms | Allocations: 4559)
+  Rendered movies/shared/_errors.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 32.6ms | Allocations: 10273)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 538)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 40.2ms | Allocations: 12150)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 0.2ms | Allocations: 13135)
+
+
+Started GET "/movies/44/registrations/new" for 127.0.0.1 at 2024-09-03 21:11:39 +0100
+Processing by RegistrationsController#new as HTML
+  Parameters: {"movie_id"=>"44"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:64:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.4ms | Allocations: 217)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1815)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 950)
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 18475)
+Completed 200 OK in 81ms (Views: 33.1ms | ActiveRecord: 9.9ms | Allocations: 33810)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 21:12:45 +0100
+Processing by UsersController#index as HTML
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as :require_signin rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 501)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 21:12:45 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2558)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 4449)
+Completed 200 OK in 29ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 4897)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-09-03 21:12:54 +0100
+Processing by UsersController#index as HTML
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as :require_signin rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 391)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 21:12:54 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2314)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 539)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4201)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4439)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-09-03 21:13:00 +0100
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered users/_form.html.erb (Duration: 5.9ms | Allocations: 1372)
+  Rendered users/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 1607)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 538)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 3493)
+Completed 200 OK in 50ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 6923)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-03 21:13:08 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2316)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 544)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 4203)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 4442)
+
+

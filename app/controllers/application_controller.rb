@@ -11,8 +11,22 @@ class ApplicationController < ActionController::Base
         # to make the current_user method available to all view helpers
         helper_method :current_user
  
+        def current_user?(user)
+         current_user == user
+        end
+        
+        helper_method :current_user?
 
+
+        
         def require_signin
-            redirect_to new_session_url, alert: "Please sign in first!" unless current_user
-           end
+            # Store the current URL in the session so the user can be redirected back after signing in
+            session[:intended_url] = request.url
+            
+            # Check if there is a current user (i.e., the user is signed in)
+            # If not, redirect them to the sign-in page with an alert message
+            redirect_to new_session_url, alert: "Please sign in first!"  unless current_user
+          end
+      
+
 end

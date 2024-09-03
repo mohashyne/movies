@@ -1,0 +1,14 @@
+ <!--<%= form_with(modle: [@movie, @registration]) do |f| %>
+
+         <%= f.label :name%>
+         <%= f.text_field :name, autofocus: true %> 
+
+         <%= f.label :email%>
+         <%= f.text_field :email%> 
+
+        <%= f.label :how_heard %>
+        <%= f.text_field :how_heard %>
+
+<% end %>   -->
+
+<!-- <%= render 'reg_form', movie: @movie, registration: @registration %> -->
