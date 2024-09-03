@@ -20,10 +20,16 @@
                 <%= link_to 'Sign Up', signup_path %>
               </li>
             <% else %>
-  <li>
-  <%= link_to 'Sign Out', session_path(current_user), 
-  data: { turbo_method: :delete } %>
+<!-- <li>
+  <%= link_to 'Sign Out', session_path, method: :delete, data: { turbo_method: :delete } %>
+</li> -->
+
+<li>
+  <%= form_with url: session_path, method: :delete, local: true do %>
+    <%= submit_tag 'Sign Out', class: "sign_out" %>
+  <% end %>
 </li>
+
 
 
 

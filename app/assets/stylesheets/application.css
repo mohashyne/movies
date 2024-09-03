@@ -54,6 +54,16 @@ nav img {
   transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
+.sign_out {
+  cursor: pointer;
+  text-decoration: none; /* Remove underline from links */
+  color: #e50914; /* Set link color */
+  font-weight: bold; /* Make text bold */
+  padding: 5px 5px; /* Add padding around the links */
+  border-radius: 5px; /* Slightly round the corners */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
 .nav-list a:hover {
   background-color: #0077b6; /* Change background color on hover */
   color: white; /* Change text color on hover */
