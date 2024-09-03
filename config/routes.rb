@@ -46,6 +46,8 @@ Rails
 
     # Since the route related to destroy requires and ID parameter, since we will not be storing sessions in a database. We won’t be looking them up by an ID. Because a user will only have one session, we use a singular form of the resource in our routes
     resource :session, only: %i[new create destroy]
+    # delete "session" => "sessions#destroy", as: "sign_out"
+
 
     root 'movies#index'
 

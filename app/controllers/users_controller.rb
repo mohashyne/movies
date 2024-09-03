@@ -52,6 +52,7 @@ class UsersController < ApplicationController
         def destroy
             set_user_id
             @user.destroy
+            session[:user_id] = nil
             redirect_to  users_url, status: :see_other,  
             alert: "User was successfully destroyed."
         end

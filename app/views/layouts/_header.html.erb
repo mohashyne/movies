@@ -20,9 +20,13 @@
                 <%= link_to 'Sign Up', signup_path %>
               </li>
             <% else %>
-              <li>
-                <%= link_to 'Sign Out', session_path,  %>
-              </li>
+  <li>
+  <%= link_to 'Sign Out', session_path(current_user), 
+  data: { turbo_method: :delete } %>
+</li>
+
+
+
 
                  <li>
                 <!-- this defines the current user 
