@@ -36,7 +36,7 @@
 
       <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
       </div>
-      
+      <% if current_user_admin? %>
       <span class="update-btn">   
          <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
         <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
@@ -44,7 +44,7 @@
          <%= link_to "Delete Movie", @movie,
     data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
       </span>
-    
+      <% end %>
     </div>
 </section>
 
