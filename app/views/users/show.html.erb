@@ -17,5 +17,29 @@
    <%= link_to "Delete Account", @user,
     data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> 
       </span>
-      <% end %>
+  <% end %>
+
+  <% if @registrations.present? %>
+<h3>registrations</h3>
+<% @registrations.each do |r| %>
+<div class="group-item">
+
+<div class="placeholer_img" >
+<%= link_to image_tag(r.movie.image_file_name), r.movie %>
+</div>
+
+<div>
+<%= link_to r.movie.name, r.movie %>
+</div>
+
+<div>
+<%= time_ago_in_words(r.created_at)%> ago
+</div>
+
+</div>
+<% end %>
+
+<% end %>
+
+
 </section>

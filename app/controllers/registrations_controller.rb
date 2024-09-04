@@ -2,9 +2,9 @@ class RegistrationsController < ApplicationController
 
 #    instead of calling the "set_movie_id" in each method
 #    we use the before_action method
-
+  before_action :require_signin
   before_action :set_movie_id
-  before_action :set_registration, only: [:edit, :update, :destroy]
+  before_action :set_registration, only: [:edit, :update, :destroy] 
 
     def index
         # @registrations = Registration.all
@@ -25,6 +25,7 @@ class RegistrationsController < ApplicationController
     def create
     #    set_movie_id
         @registration = @movie.registrations.new(registration_params)
+        @registration.user = current_user
 
      if @registration.save
         redirect_to movie_registrations_url(@movie),
@@ -73,8 +74,8 @@ class RegistrationsController < ApplicationController
           params
             .require(:registration)
             .permit(
-              :name,
-              :email,
+              # :name,
+              # :email,
               :how_heard
             )
       end

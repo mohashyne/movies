@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
     def show
         set_user_id
+        @registrations = @user.registrations
       end
 
 

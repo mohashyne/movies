@@ -1,20 +1,12 @@
 <h1>Registrations for <%= link_to @movie.name, movie_path(@movie) %></h1>
 
-<!--
-<ul>
-<% @registrations.each do |reg| %>
-<li>
-<%= reg.name %> for <%= reg.movie.name%>
-</li>
-<% end %>
-</ul> -->
-
-<!-- app/views/registrations/index.html.erb -->
 <% @registrations.each do |registration| %>
 <div class="summary" >  
   <ul>
-    <li>Name: <%= registration.name %></li>
-    <li>Email: <%= registration.email %></li>
+  <!-- the registration name comes from the user via its id, rather than using 
+  registration.name  or  registration.email -->
+    <li>Name: <%= link_to registration.user.name, registration.user %></li>
+    <li>Email: <%= registration.user.email %></li>
     <li>How Heard: <%= registration.how_heard %></li>
   </ul>
     <div class="update-btn">
