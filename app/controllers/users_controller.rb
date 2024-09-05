@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     def show
         set_user_id
         @registrations = @user.registrations
+        @liked_movies = set_user_id.liked_movies # this will appear in thee show user views
       end
 
 

@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
     #fail # this a old way debugging trick
     # @movie = Movie.find(1)
     find_movie
+    @likers =  find_movie.likers
   end
 
   def edit

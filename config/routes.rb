@@ -48,6 +48,8 @@ Rails
     resource :session, only: %i[new create destroy]
     # delete "session" => "sessions#destroy", as: "sign_out"
 
+    resource :likes, only: %i[new destroy]
+
 
     root 'movies#index'
 

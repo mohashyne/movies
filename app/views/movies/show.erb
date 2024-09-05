@@ -36,6 +36,18 @@
 
       <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
       </div>
+      <aside>
+      <% if @likers.present? %>
+      <h4>Liked By</h4>
+      <ul>
+      <% @likers.each do |user| %>
+      <li>
+      <%= link_to user.name, user %>
+      </li>
+      <% end %>
+      </ul>
+      <% end %>
+      </aside>
       <% if current_user_admin? %>
       <span class="update-btn">   
          <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>

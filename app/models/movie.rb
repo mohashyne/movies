@@ -1,5 +1,12 @@
 class Movie < ApplicationRecord
 has_many :registrations, dependent: :destroy # dependent destroy will delete the registration attached to the movie to watch, when we call th destroy on the parent
+has_many :likes,  dependent: :destroy
+# has_many :users, through: :likes
+# wee want to call those that liked a movie likers , instad of users, so we have to specifie source for the likers
+has_many :likers, through: :likes, source: :user
+
+
+
 
  validates :name, :actor, presence: true
  
