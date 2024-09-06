@@ -48,7 +48,9 @@ Rails
     resource :session, only: %i[new create destroy]
     # delete "session" => "sessions#destroy", as: "sign_out"
 
-    resource :likes, only: %i[new destroy]
+
+    # WE NEED TO NEST LIKES INSIDE MOVIES TO LINK IT UP
+    # resource :likes, only: %i[new create destroy]
 
 
     root 'movies#index'
@@ -57,6 +59,7 @@ Rails
     # For example, URLs like /movies/1/registrations will map to the index action of the RegistrationsController to show all registrations for the movie with ID 1.
     resources :movies do
       resources :registrations
+      resource :likes, only: %i[new create destroy]
     end
 
     resources :users

@@ -18,6 +18,10 @@ class MoviesController < ApplicationController
     # @movie = Movie.find(1)
     find_movie
     @likers =  find_movie.likers
+    
+    if current_user
+    @like = current_user.likes.find_by(movie_id:  find_movie.id)
+    end
   end
 
   def edit
