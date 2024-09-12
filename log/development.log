@@ -39743,3 +39743,10 @@ Processing by MoviesController#show as HTML
 Completed 200 OK in 56ms (Views: 31.8ms | ActiveRecord: 8.9ms | Allocations: 17178)
 
 
+  [1m[36mMovie Load (25.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:06:15.602931') /* loading for pp */ ORDER BY starts_at LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (3.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."price" = $1 /* loading for pp */ ORDER BY "movies"."name" ASC LIMIT $2[0m  [["price", "0.0"], ["LIMIT", 11]]
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:13:08.323143') AND "movies"."price" = $1 /* loading for pp */ ORDER BY starts_at, "movies"."name" ASC LIMIT $2[0m  [["price", "0.0"], ["LIMIT", 11]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:13:25.067759') AND "movies"."price" = $1 /* loading for pp */ ORDER BY starts_at, "movies"."name" ASC LIMIT $2[0m  [["price", "0.0"], ["LIMIT", 11]]
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:15:40.465051') AND "movies"."price" = $1 /* loading for pp */ ORDER BY starts_at, "movies"."name" ASC LIMIT $2[0m  [["price", "0.0"], ["LIMIT", 11]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:17:55.703741') AND "movies"."price" = $1 /* loading for pp */ ORDER BY starts_at, "movies"."name" ASC LIMIT $2[0m  [["price", "0.0"], ["LIMIT", 11]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:20:33.912449') /* loading for pp */ ORDER BY starts_at LIMIT $1[0m  [["LIMIT", 3]]

@@ -23,13 +23,25 @@ has_many :categories, through: :categorizations
  validates :image_file_name, format: { 
            with:  /\w+\.(jpg|png|webp)\z/i,
            message: "must be a JPG, WEBP OR PNG image"
-         }             
-#  this will define the method in the movie class
-  def self.upcoming
-    # we don't need to call the Movie.where("starts_at > ?", Time.now).order("starts_at")
-    # because of the self we used itt will call it automatically
-    where("starts_at > ?", Time.now).order("starts_at")
-  end
+         }  
+
+# turn methods into a scope
+scope :past, -> { where("starts_at > ?", Time.now).order("starts_at") }
+scope :upcoming, -> {  where("starts_at > ?", Time.now).order("starts_at") }
+scope :free, -> {  upcoming.where(price: 0.0).order(:name) }
+scope :recent, ->(max=3) {  past.limit(max) }
+
+
+# #  this will define the method in the movie class
+#   def self.upcoming
+#     # we don't need to call the Movie.where("starts_at > ?", Time.now).order("starts_at")
+#     # because of the self we used itt will call it automatically
+#     where("starts_at > ?", Time.now).order("starts_at")
+#   end
+
+  # def self.past
+  #   where("starts_at < ?", Time.now).order("starts_at")
+  # end
 
   def free?
     price.blank? || price.zero?
