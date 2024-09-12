@@ -18,6 +18,7 @@ class MoviesController < ApplicationController
     # @movie = Movie.find(1)
     find_movie
     @likers =  find_movie.likers
+    @categories = find_movie.categories
     
     if current_user
     @like = current_user.likes.find_by(movie_id:  find_movie.id)
@@ -86,7 +87,8 @@ class MoviesController < ApplicationController
           :price,
           :release_year,
           :capacity,
-          :image_file_name
+          :image_file_name,
+          category_ids: []
         )
   end
 

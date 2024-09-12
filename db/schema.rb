@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_04_143711) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_09_102958) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_04_143711) do
     t.integer "release_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizations", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categorizations_on_category_id"
+    t.index ["movie_id"], name: "index_categorizations_on_movie_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -69,6 +84,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_04_143711) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "categorizations", "categories"
+  add_foreign_key "categorizations", "movies"
   add_foreign_key "likes", "movies"
   add_foreign_key "likes", "users"
   add_foreign_key "registrations", "movies"

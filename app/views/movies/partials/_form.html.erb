@@ -51,6 +51,11 @@
 
                 <%= f.label :upload_image%>
                 <%= f.text_field :image_file_name %> 
+
+                <div class="checkboxes">
+                    <%= f.label :genre %>
+                  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+                 </div>
           
      <div>
             <%= f.submit %> 

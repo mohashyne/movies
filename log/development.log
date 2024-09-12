@@ -37480,3 +37480,2266 @@ Processing by MoviesController#show as HTML
 Completed 200 OK in 110ms (Views: 64.9ms | ActiveRecord: 11.3ms | Allocations: 46945)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (26.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (16.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateCategories (20240909102019)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240909102019') RETURNING "version"[0m
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateCategorizations (20240909102958)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.4ms)[0m  [1m[35mCREATE TABLE "categorizations" ("id" bigserial primary key, "movie_id" bigint NOT NULL, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_7a8dce8f23"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+, CONSTRAINT "fk_rails_5a40b79a1d"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE INDEX "index_categorizations_on_movie_id" ON "categorizations" ("movie_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_categorizations_on_category_id" ON "categorizations" ("category_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240909102958') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (8.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Exists? (48.1ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Action"], ["LIMIT", 1]]
+  [1m[36mCategory Create (34.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Action"], ["created_at", "2024-09-09 14:08:02.157217"], ["updated_at", "2024-09-09 14:08:02.157217"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Drama"], ["LIMIT", 1]]
+  [1m[36mCategory Create (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Drama"], ["created_at", "2024-09-09 14:08:02.198624"], ["updated_at", "2024-09-09 14:08:02.198624"]]
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Exists? (7.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Horror"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Horror"], ["created_at", "2024-09-09 14:08:02.220973"], ["updated_at", "2024-09-09 14:08:02.220973"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Scifi"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scifi"], ["created_at", "2024-09-09 14:08:02.230561"], ["updated_at", "2024-09-09 14:08:02.230561"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Horror"], ["LIMIT", 1]]
+  [1m[36mMovie Load (7.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Her 4"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategorization Create (11.2ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["category_id", 3], ["created_at", "2024-09-09 14:12:37.229452"], ["updated_at", "2024-09-09 14:12:37.229452"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (3.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1 /* loading for pp */ LIMIT $2[0m  [["movie_id", 44], ["LIMIT", 11]]
+  [1m[36mCategory Load (13.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Action"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategorization Create (19.4ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["category_id", 1], ["created_at", "2024-09-09 14:13:17.746552"], ["updated_at", "2024-09-09 14:13:17.746552"]]
+  [1m[36mTRANSACTION (15.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1 /* loading for pp */ LIMIT $2[0m  [["movie_id", 44], ["LIMIT", 11]]
+  [1m[36mCategory Load (6.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1 /* loading for pp */ LIMIT $2[0m  [["movie_id", 44], ["LIMIT", 11]]
+  [1m[36mMovie Load (3.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "categorizations" ON "movies"."id" = "categorizations"."movie_id" WHERE "categorizations"."category_id" = $1 /* loading for pp */ LIMIT $2[0m  [["category_id", 1], ["LIMIT", 11]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  [1m[36mCategory Load (10.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3, $4)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategorization Create (194.9ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["category_id", 2], ["created_at", "2024-09-09 14:40:03.678796"], ["updated_at", "2024-09-09 14:40:03.678796"]]
+  [1m[36mCategorization Create (0.3ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["category_id", 4], ["created_at", "2024-09-09 14:40:03.877196"], ["updated_at", "2024-09-09 14:40:03.877196"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2)[0m  [["id", 1], ["id", 4]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategorization Delete All (21.3ms)[0m  [1m[31mDELETE FROM "categorizations" WHERE "categorizations"."movie_id" = $1 AND "categorizations"."category_id" IN ($2, $3)[0m  [["movie_id", 44], ["category_id", 3], ["category_id", 2]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategorization Delete All (4.1ms)[0m  [1m[31mDELETE FROM "categorizations" WHERE "categorizations"."movie_id" = $1 AND "categorizations"."category_id" IN ($2, $3)[0m  [["movie_id", 44], ["category_id", 1], ["category_id", 4]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategorization Create (1.8ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["category_id", 1], ["created_at", "2024-09-09 14:42:01.923684"], ["updated_at", "2024-09-09 14:42:01.923684"]]
+  [1m[36mCategorization Create (12.0ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["category_id", 2], ["created_at", "2024-09-09 14:42:01.926932"], ["updated_at", "2024-09-09 14:42:01.926932"]]
+  [1m[36mTRANSACTION (42.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/_next/static/chunks/297-096f80ecc532789b.js" for ::1 at 2024-09-09 18:01:20 +0100
+Started GET "/_next/static/chunks/pages/index-3f8c92fbb6ab55b1.js" for ::1 at 2024-09-09 18:01:20 +0100
+Started GET "/_next/static/chunks/288-764dd4a6d082f691.js" for ::1 at 2024-09-09 18:01:20 +0100
+Started GET "/_next/static/chunks/18-bd089fe98dd102a8.js" for ::1 at 2024-09-09 18:01:20 +0100
+Started GET "/_next/static/chunks/129-05edc1ab00b5ee59.js" for ::1 at 2024-09-09 18:01:20 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (33.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/129-05edc1ab00b5ee59.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/index-3f8c92fbb6ab55b1.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/297-096f80ecc532789b.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/288-764dd4a6d082f691.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/18-bd089fe98dd102a8.js"):
+  
+Started GET "/_next/static/chunks/863-277dade8a6430f40.js" for ::1 at 2024-09-09 18:01:22 +0100
+Started GET "/_next/static/chunks/pages/about-us-eb61d5e71fb8c293.js" for ::1 at 2024-09-09 18:01:22 +0100
+Started GET "/_next/static/chunks/pages/services-97cd9b83f8ddc024.js" for ::1 at 2024-09-09 18:01:22 +0100
+Started GET "/_next/static/chunks/pages/shops-7a8dbfddcc63094d.js" for ::1 at 2024-09-09 18:01:22 +0100
+Started GET "/_next/static/chunks/pages/team-38e7f8c26ce766cb.js" for ::1 at 2024-09-09 18:01:22 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/863-277dade8a6430f40.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/services-97cd9b83f8ddc024.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/about-us-eb61d5e71fb8c293.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/team-38e7f8c26ce766cb.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/shops-7a8dbfddcc63094d.js"):
+  
+Started GET "/_next/static/chunks/pages/projects-f306e0c35f7fde7f.js" for ::1 at 2024-09-09 18:01:23 +0100
+Started GET "/_next/static/chunks/pages/terms-conditions-c8534c6a0e33acaa.js" for ::1 at 2024-09-09 18:01:23 +0100
+Started GET "/_next/static/chunks/pages/privacy-policy-5cf5bb1f632aedf9.js" for ::1 at 2024-09-09 18:01:23 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/projects-f306e0c35f7fde7f.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/terms-conditions-c8534c6a0e33acaa.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/privacy-policy-5cf5bb1f632aedf9.js"):
+  
+Started GET "/_next/static/chunks/pages/single-service-ea104966568abebf.js" for ::1 at 2024-09-09 18:01:23 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/single-service-ea104966568abebf.js"):
+  
+Started GET "/_next/static/chunks/pages/privacy-policy-5cf5bb1f632aedf9.js" for ::1 at 2024-09-09 19:32:13 +0100
+Started GET "/_next/static/chunks/863-277dade8a6430f40.js" for ::1 at 2024-09-09 19:32:13 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/863-277dade8a6430f40.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/pages/privacy-policy-5cf5bb1f632aedf9.js"):
+  
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mMovie Load (4.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Her 4"], ["LIMIT", 1]]
+  [1m[36mCategory Load (10.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1 /* loading for pp */ LIMIT $2[0m  [["movie_id", 44], ["LIMIT", 11]]
+Started GET "/movies" for 127.0.0.1 at 2024-09-12 21:09:44 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (9.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 20:09:44.917344') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 273.2ms | Allocations: 54336)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 903)
+  Rendered layouts/_flash.erb (Duration: 0.9ms | Allocations: 239)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 96)
+  Rendered layout layouts/application.html.erb (Duration: 325.9ms | Allocations: 71379)
+Completed 200 OK in 418ms (Views: 314.5ms | ActiveRecord: 33.5ms | Allocations: 87091)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 21:09:59 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  Rendered movies/show.erb within layouts/application (Duration: 3.9ms | Allocations: 1991)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2090)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.4ms | Allocations: 14313)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+
+<section class="movies">
+<div class="placeholer_img" >
+<%=  image_tag @movie.image_file_name %>
+<% if current_user %>
+<div class="likes">
+<%= like_or_unlike_count(@movie, @likes, @likers)%>
+</div>
+     <aside>
+      <% if @likers.present? %>
+      <h4>Liked By</h4>
+      <ul>
+      <% @likers.each do |user| %>
+      <li>
+      <%= link_to user.name, user %>
+      </li>
+      <% end %>
+      </ul>
+      <% end %>
+      <!--categories -->
+      <% if @movie.categories.present? %>
+      <h4>Categories</h4>
+      <ul>
+      <% @categories.each do |c|%>
+     <li><%= c.name %></li>
+      <% end %>
+      </ul>
+      </aside>
+
+<% end %>
+</div>
+    <div class="summary">
+      <h2><%= @movie.name %>
+       </h2>
+      <h3>by <%= @movie.actor%></h3>
+      <span class="price">
+        ShowTime: <%= @movie.starts_at.strftime("%B %d at %I:%M %P") %>
+      </span>
+      <p>
+        <%= @movie.description %>
+      </p>
+      <p>
+      Producer: <%= @movie.producer%>
+      </p>
+
+      <p>
+      Release Year: <%= @movie.release_year%>
+      </p>
+       
+      <p>
+      Networth: <%= @movie.net_worth%>
+      </p>
+      <span class="price">
+<%= price(@movie) %> &bull; <%= @movie.capacity == 1 ? "per seat" : pluralize(@movie.capacity, "seat")  %>
+      </span>
+
+      <div>
+   <span class="update-btn">
+           <!--  <%= link_to 'Register', new_movie_registration_path(@movie), class: "btn reg-btn"  %> --> <%= register_or_sold_out(@movie)  %>
+      </span>
+
+      <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
+      </div>
+     
+      <% if current_user_admin? %>
+      <span class="update-btn">   
+         <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
+        <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
+
+         <%= link_to "Delete Movie", @movie,
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
+      </span>
+      <% end %>
+    </div>
+</section>
+
+
+):
+1:    
+2:    
+3:    <section class="movies">
+4:    <div class="placeholer_img" >
+5:    <%=  image_tag @movie.image_file_name %>
+6:    <% if current_user %>
+7:    <div class="likes">
+8:    <%= like_or_unlike_count(@movie, @likes, @likers)%>
+9:    </div>
+10:         <aside>
+11:          <% if @likers.present? %>
+12:          <h4>Liked By</h4>
+13:          <ul>
+14:          <% @likers.each do |user| %>
+15:          <li>
+16:          <%= link_to user.name, user %>
+17:          </li>
+18:          <% end %>
+19:          </ul>
+20:          <% end %>
+21:          <!--categories -->
+22:          <% if @movie.categories.present? %>
+23:          <h4>Categories</h4>
+24:          <ul>
+25:          <% @categories.each do |c|%>
+26:         <li><%= c.name %></li>
+27:          <% end %>
+28:          </ul>
+29:          </aside>
+30:    
+31:    <% end %>
+32:    </div>
+33:        <div class="summary">
+34:          <h2><%= @movie.name %>
+35:           </h2>
+36:          <h3>by <%= @movie.actor%></h3>
+37:          <span class="price">
+38:            ShowTime: <%= @movie.starts_at.strftime("%B %d at %I:%M %P") %>
+39:          </span>
+40:          <p>
+41:            <%= @movie.description %>
+42:          </p>
+43:          <p>
+44:          Producer: <%= @movie.producer%>
+45:          </p>
+46:    
+47:          <p>
+48:          Release Year: <%= @movie.release_year%>
+49:          </p>
+50:           
+51:          <p>
+52:          Networth: <%= @movie.net_worth%>
+53:          </p>
+54:          <span class="price">
+55:    <%= price(@movie) %> &bull; <%= @movie.capacity == 1 ? "per seat" : pluralize(@movie.capacity, "seat")  %>
+56:          </span>
+57:    
+58:          <div>
+59:       <span class="update-btn">
+60:               <!--  <%= link_to 'Register', new_movie_registration_path(@movie), class: "btn reg-btn"  %> --> <%= register_or_sold_out(@movie)  %>
+61:          </span>
+62:    
+63:          <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
+64:          </div>
+65:         
+66:          <% if current_user_admin? %>
+67:          <span class="update-btn">   
+68:             <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
+69:            <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
+70:    
+71:             <%= link_to "Delete Movie", @movie,
+72:        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
+73:          </span>
+74:          <% end %>
+75:        </div>
+76:    </section>
+  
+app/views/movies/show.erb:80: syntax error, unexpected end-of-input
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 21:10:24 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  Rendered movies/show.erb within layouts/application (Duration: 0.9ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1711)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 3.1ms | Allocations: 18343)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+
+<section class="movies">
+<div class="placeholer_img" >
+<%=  image_tag @movie.image_file_name %>
+<% if current_user %>
+<div class="likes">
+<%= like_or_unlike_count(@movie, @likes, @likers)%>
+</div>
+     <aside>
+      <% if @likers.present? %>
+      <h4>Liked By</h4>
+      <ul>
+      <% @likers.each do |user| %>
+      <li>
+      <%= link_to user.name, user %>
+      </li>
+      <% end %>
+      </ul>
+      <% end %>
+    
+      <% if @movie.categories.present? %>
+      <h4>Categories</h4>
+      <ul>
+      <% @categories.each do |c|%>
+     <li><%= c.name %></li>
+      <% end %>
+      </ul>
+      </aside>
+
+<% end %>
+</div>
+    <div class="summary">
+      <h2><%= @movie.name %>
+       </h2>
+      <h3>by <%= @movie.actor%></h3>
+      <span class="price">
+        ShowTime: <%= @movie.starts_at.strftime("%B %d at %I:%M %P") %>
+      </span>
+      <p>
+        <%= @movie.description %>
+      </p>
+      <p>
+      Producer: <%= @movie.producer%>
+      </p>
+
+      <p>
+      Release Year: <%= @movie.release_year%>
+      </p>
+       
+      <p>
+      Networth: <%= @movie.net_worth%>
+      </p>
+      <span class="price">
+<%= price(@movie) %> &bull; <%= @movie.capacity == 1 ? "per seat" : pluralize(@movie.capacity, "seat")  %>
+      </span>
+
+      <div>
+   <span class="update-btn">
+           <!--  <%= link_to 'Register', new_movie_registration_path(@movie), class: "btn reg-btn"  %> --> <%= register_or_sold_out(@movie)  %>
+      </span>
+
+      <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
+      </div>
+     
+      <% if current_user_admin? %>
+      <span class="update-btn">   
+         <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
+        <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
+
+         <%= link_to "Delete Movie", @movie,
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
+      </span>
+      <% end %>
+    </div>
+</section>
+
+
+):
+1:    
+2:    
+3:    <section class="movies">
+4:    <div class="placeholer_img" >
+5:    <%=  image_tag @movie.image_file_name %>
+6:    <% if current_user %>
+7:    <div class="likes">
+8:    <%= like_or_unlike_count(@movie, @likes, @likers)%>
+9:    </div>
+10:         <aside>
+11:          <% if @likers.present? %>
+12:          <h4>Liked By</h4>
+13:          <ul>
+14:          <% @likers.each do |user| %>
+15:          <li>
+16:          <%= link_to user.name, user %>
+17:          </li>
+18:          <% end %>
+19:          </ul>
+20:          <% end %>
+21:        
+22:          <% if @movie.categories.present? %>
+23:          <h4>Categories</h4>
+24:          <ul>
+25:          <% @categories.each do |c|%>
+26:         <li><%= c.name %></li>
+27:          <% end %>
+28:          </ul>
+29:          </aside>
+30:    
+31:    <% end %>
+32:    </div>
+33:        <div class="summary">
+34:          <h2><%= @movie.name %>
+35:           </h2>
+36:          <h3>by <%= @movie.actor%></h3>
+37:          <span class="price">
+38:            ShowTime: <%= @movie.starts_at.strftime("%B %d at %I:%M %P") %>
+39:          </span>
+40:          <p>
+41:            <%= @movie.description %>
+42:          </p>
+43:          <p>
+44:          Producer: <%= @movie.producer%>
+45:          </p>
+46:    
+47:          <p>
+48:          Release Year: <%= @movie.release_year%>
+49:          </p>
+50:           
+51:          <p>
+52:          Networth: <%= @movie.net_worth%>
+53:          </p>
+54:          <span class="price">
+55:    <%= price(@movie) %> &bull; <%= @movie.capacity == 1 ? "per seat" : pluralize(@movie.capacity, "seat")  %>
+56:          </span>
+57:    
+58:          <div>
+59:       <span class="update-btn">
+60:               <!--  <%= link_to 'Register', new_movie_registration_path(@movie), class: "btn reg-btn"  %> --> <%= register_or_sold_out(@movie)  %>
+61:          </span>
+62:    
+63:          <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
+64:          </div>
+65:         
+66:          <% if current_user_admin? %>
+67:          <span class="update-btn">   
+68:             <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
+69:            <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
+70:    
+71:             <%= link_to "Delete Movie", @movie,
+72:        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
+73:          </span>
+74:          <% end %>
+75:        </div>
+76:    </section>
+  
+app/views/movies/show.erb:80: syntax error, unexpected end-of-input
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 21:12:23 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  Rendered movies/show.erb within layouts/application (Duration: 1.9ms | Allocations: 1610)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1710)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 4.3ms | Allocations: 18318)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+
+<section class="movies">
+<div class="placeholer_img" >
+<%=  image_tag @movie.image_file_name %>
+<% if current_user %>
+<div class="likes">
+<%= like_or_unlike_count(@movie, @likes, @likers)%>
+</div>
+     <aside>
+      <% if @likers.present? %>
+      <h4>Liked By</h4>
+      <ul>
+      <% @likers.each do |user| %>
+      <li>
+      <%= link_to user.name, user %>
+      </li>
+      <% end %>
+      </ul>
+      <% end %>
+      <!--categories -->
+      <% if @movie.categories.present? %>
+      <h4>Categories</h4>
+      <ul>
+      <% @categories.each do |c|%>
+     <li><%= c.name %></li>
+      </ul>
+       <% end %>
+      </aside>
+
+<% end %>
+</div>
+    <div class="summary">
+      <h2><%= @movie.name %>
+       </h2>
+      <h3>by <%= @movie.actor%></h3>
+      <span class="price">
+        ShowTime: <%= @movie.starts_at.strftime("%B %d at %I:%M %P") %>
+      </span>
+      <p>
+        <%= @movie.description %>
+      </p>
+      <p>
+      Producer: <%= @movie.producer%>
+      </p>
+
+      <p>
+      Release Year: <%= @movie.release_year%>
+      </p>
+       
+      <p>
+      Networth: <%= @movie.net_worth%>
+      </p>
+      <span class="price">
+<%= price(@movie) %> &bull; <%= @movie.capacity == 1 ? "per seat" : pluralize(@movie.capacity, "seat")  %>
+      </span>
+
+      <div>
+   <span class="update-btn">
+           <!--  <%= link_to 'Register', new_movie_registration_path(@movie), class: "btn reg-btn"  %> --> <%= register_or_sold_out(@movie)  %>
+      </span>
+
+      <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
+      </div>
+     
+      <% if current_user_admin? %>
+      <span class="update-btn">   
+         <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
+        <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
+
+         <%= link_to "Delete Movie", @movie,
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
+      </span>
+      <% end %>
+    </div>
+</section>
+
+
+):
+1:    
+2:    
+3:    <section class="movies">
+4:    <div class="placeholer_img" >
+5:    <%=  image_tag @movie.image_file_name %>
+6:    <% if current_user %>
+7:    <div class="likes">
+8:    <%= like_or_unlike_count(@movie, @likes, @likers)%>
+9:    </div>
+10:         <aside>
+11:          <% if @likers.present? %>
+12:          <h4>Liked By</h4>
+13:          <ul>
+14:          <% @likers.each do |user| %>
+15:          <li>
+16:          <%= link_to user.name, user %>
+17:          </li>
+18:          <% end %>
+19:          </ul>
+20:          <% end %>
+21:          <!--categories -->
+22:          <% if @movie.categories.present? %>
+23:          <h4>Categories</h4>
+24:          <ul>
+25:          <% @categories.each do |c|%>
+26:         <li><%= c.name %></li>
+27:          </ul>
+28:           <% end %>
+29:          </aside>
+30:    
+31:    <% end %>
+32:    </div>
+33:        <div class="summary">
+34:          <h2><%= @movie.name %>
+35:           </h2>
+36:          <h3>by <%= @movie.actor%></h3>
+37:          <span class="price">
+38:            ShowTime: <%= @movie.starts_at.strftime("%B %d at %I:%M %P") %>
+39:          </span>
+40:          <p>
+41:            <%= @movie.description %>
+42:          </p>
+43:          <p>
+44:          Producer: <%= @movie.producer%>
+45:          </p>
+46:    
+47:          <p>
+48:          Release Year: <%= @movie.release_year%>
+49:          </p>
+50:           
+51:          <p>
+52:          Networth: <%= @movie.net_worth%>
+53:          </p>
+54:          <span class="price">
+55:    <%= price(@movie) %> &bull; <%= @movie.capacity == 1 ? "per seat" : pluralize(@movie.capacity, "seat")  %>
+56:          </span>
+57:    
+58:          <div>
+59:       <span class="update-btn">
+60:               <!--  <%= link_to 'Register', new_movie_registration_path(@movie), class: "btn reg-btn"  %> --> <%= register_or_sold_out(@movie)  %>
+61:          </span>
+62:    
+63:          <%= link_to "Who is registered?", movie_registrations_path(@movie) %>
+64:          </div>
+65:         
+66:          <% if current_user_admin? %>
+67:          <span class="update-btn">   
+68:             <%= link_to 'Edit', edit_movie_path(@movie), class: "btn"  %>
+69:            <%= link_to 'Add New Movie', new_movie_path, class: "btn"  %> 
+70:    
+71:             <%= link_to "Delete Movie", @movie,
+72:        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn" %> 
+73:          </span>
+74:          <% end %>
+75:        </div>
+76:    </section>
+  
+app/views/movies/show.erb:80: syntax error, unexpected end-of-input
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 21:15:12 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mRegistration Count (13.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  Rendered movies/show.erb within layouts/application (Duration: 29.7ms | Allocations: 4725)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 892)
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | Allocations: 21297)
+Completed 200 OK in 94ms (Views: 40.1ms | ActiveRecord: 18.2ms | Allocations: 37893)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-12 21:15:50 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 11.7ms | Allocations: 3164)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 475)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 4986)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 5479)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-12 21:16:16 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"moe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users/8
+Completed 302 Found in 236ms (ActiveRecord: 5.6ms | Allocations: 6993)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-12 21:16:16 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRegistration Load (1.4ms)[0m  [1m[34mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/views/users/show.html.erb:22
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mMovie Load (8.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "likes" ON "movies"."id" = "likes"."movie_id" WHERE "likes"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/views/users/show.html.erb:45
+  Rendered users/show.html.erb within layouts/application (Duration: 49.9ms | Allocations: 16690)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 14.8ms | Allocations: 2113)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 68.2ms | Allocations: 20039)
+Completed 200 OK in 80ms (Views: 57.9ms | ActiveRecord: 14.5ms | Allocations: 23665)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-12 21:16:26 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 20:16:26.619533') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 7.6ms | Allocations: 3055)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.0ms | Allocations: 2206)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 6664)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.8ms | Allocations: 7050)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 21:16:31 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 8], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 34.8ms | Allocations: 9599)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 2113)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 45.5ms | Allocations: 12926)
+Completed 200 OK in 63ms (Views: 38.1ms | ActiveRecord: 11.8ms | Allocations: 16326)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-12 21:32:16 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (42.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 20:32:17.016565') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 57.3ms | Allocations: 10350)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.5ms | Allocations: 7930)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 118.4ms | Allocations: 34214)
+Completed 200 OK in 140ms (Views: 67.5ms | ActiveRecord: 55.1ms | Allocations: 38192)
+
+
+Started GET "/movies/40" for 127.0.0.1 at 2024-09-12 21:32:22 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (49.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 8], ["movie_id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/views/movies/show.erb:9
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mRegistration Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 45.4ms | Allocations: 10195)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 2088)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | Allocations: 13500)
+Completed 200 OK in 174ms (Views: 50.8ms | ActiveRecord: 56.4ms | Allocations: 24923)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2024-09-12 21:33:03 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 4ms (ActiveRecord: 0.0ms | Allocations: 463)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-12 21:33:04 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (197.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 20:33:04.033601') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 207.8ms | Allocations: 2743)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 454)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 211.4ms | Allocations: 4611)
+Completed 200 OK in 213ms (Views: 14.4ms | ActiveRecord: 197.6ms | Allocations: 4905)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-12 21:33:07 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2556)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 475)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4378)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 4796)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-12 21:33:18 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"admin@msa.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@msa.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users/8
+Completed 302 Found in 225ms (ActiveRecord: 0.3ms | Allocations: 914)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2024-09-12 21:33:18 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:98:in `set_user_id'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRegistration Load (0.3ms)[0m  [1m[34mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/views/users/show.html.erb:22
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "likes" ON "movies"."id" = "likes"."movie_id" WHERE "likes"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/views/users/show.html.erb:45
+  Rendered users/show.html.erb within layouts/application (Duration: 22.5ms | Allocations: 11936)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.0ms | Allocations: 2142)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 15312)
+Completed 200 OK in 41ms (Views: 31.3ms | ActiveRecord: 2.4ms | Allocations: 18091)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-12 21:33:25 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 20:33:25.763254') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 13.2ms | Allocations: 2761)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 13.2ms | Allocations: 2255)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 6461)
+Completed 200 OK in 32ms (Views: 29.3ms | ActiveRecord: 0.9ms | Allocations: 6755)
+
+
+Started GET "/movies/40" for 127.0.0.1 at 2024-09-12 21:33:30 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/views/movies/show.erb:9
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mRegistration Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 21.6ms | Allocations: 4422)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 11.7ms | Allocations: 2142)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 35.9ms | Allocations: 7787)
+Completed 200 OK in 51ms (Views: 34.2ms | ActiveRecord: 3.7ms | Allocations: 11052)
+
+
+Started GET "/movies/40/edit" for 127.0.0.1 at 2024-09-12 21:33:33 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/partials/_form.html.erb (Duration: 6.3ms | Allocations: 1852)
+  Rendered movies/edit.erb within layouts/application (Duration: 14.3ms | Allocations: 2121)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 2226)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.4ms | Allocations: 3953)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section class="movies">
+    <div class="summary">
+<%= form_with(model: movie) do |f| %>
+      
+<!-- <%= movie.errors.full_messages.to_sentence %> -->
+<!-- <% if movie.errors.any? %>
+<section class="errors">
+  <h2>Oops! Your form could not be saved.</h2>
+  <h3>
+    Please correct the following
+    <%= pluralize(movie.errors.size, "error") %>:
+  </h3>
+  <ul>
+    <% movie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %> -->
+
+<%= render "movies/shared/errors", object: movie %>
+
+         
+         <div class="form-group">
+         <%= f.label :name%>
+         <%= f.text_field :name, autofocus: true %> 
+
+         <%= f.label :Year%>
+         <%= f.text_field :release_year%> 
+
+                <%= f.label :actor %>
+                <%= f.text_field :actor %>
+        
+                <%= f.label :showtime %>
+                <%= f.datetime_local_field :starts_at %>
+          
+                <%= f.label :description %>
+                <%= f.text_area :description, rows: 5 %>
+          
+                <%= f.label :producer %>
+                <%= f.text_field :producer %>
+          
+                <%= f.label :net_worth %>
+                <%= f.text_field :net_worth %>
+          
+                <%= f.label :price %>
+                <%= f.text_field :price %>
+
+                 <%= f.label :capacity %>
+                <%= f.text_field :capacity %> 
+
+                <%= f.label :upload_image%>
+                <%= f.text_field :image_file_name %> 
+
+                <div class="checkboxes">
+                <%= f.label :genre %>
+                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+                </div>
+          
+     <div>
+            <%= f.submit %> 
+        </div>
+</section>
+<% end %>
+
+
+):
+1:    <section class="movies">
+2:        <div class="summary">
+3:    <%= form_with(model: movie) do |f| %>
+4:          
+5:    <!-- <%= movie.errors.full_messages.to_sentence %> -->
+6:    <!-- <% if movie.errors.any? %>
+7:    <section class="errors">
+8:      <h2>Oops! Your form could not be saved.</h2>
+9:      <h3>
+10:        Please correct the following
+11:        <%= pluralize(movie.errors.size, "error") %>:
+12:      </h3>
+13:      <ul>
+14:        <% movie.errors.full_messages.each do |message| %>
+15:          <li><%= message %></li>
+16:        <% end %>
+17:      </ul>
+18:    </section>
+19:    <% end %> -->
+20:    
+21:    <%= render "movies/shared/errors", object: movie %>
+22:    
+23:             
+24:             <div class="form-group">
+25:             <%= f.label :name%>
+26:             <%= f.text_field :name, autofocus: true %> 
+27:    
+28:             <%= f.label :Year%>
+29:             <%= f.text_field :release_year%> 
+30:    
+31:                    <%= f.label :actor %>
+32:                    <%= f.text_field :actor %>
+33:            
+34:                    <%= f.label :showtime %>
+35:                    <%= f.datetime_local_field :starts_at %>
+36:              
+37:                    <%= f.label :description %>
+38:                    <%= f.text_area :description, rows: 5 %>
+39:              
+40:                    <%= f.label :producer %>
+41:                    <%= f.text_field :producer %>
+42:              
+43:                    <%= f.label :net_worth %>
+44:                    <%= f.text_field :net_worth %>
+45:              
+46:                    <%= f.label :price %>
+47:                    <%= f.text_field :price %>
+48:    
+49:                     <%= f.label :capacity %>
+50:                    <%= f.text_field :capacity %> 
+51:    
+52:                    <%= f.label :upload_image%>
+53:                    <%= f.text_field :image_file_name %> 
+54:    
+55:                    <div class="checkboxes">
+56:                    <%= f.label :genre %>
+57:                    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+58:                    </div>
+59:              
+60:         <div>
+61:                <%= f.submit %> 
+62:            </div>
+63:    </section>
+64:    <% end %>
+  
+app/views/movies/partials/_form.html.erb:58: syntax error, unexpected '<'
+app/views/movies/partials/_form.html.erb:62: unknown regexp options - dv
+app/views/movies/partials/_form.html.erb:67: unterminated regexp meets end of file
+app/views/movies/edit.erb:3
+Started GET "/movies/40/edit" for 127.0.0.1 at 2024-09-12 21:34:20 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/partials/_form.html.erb (Duration: 0.8ms | Allocations: 1742)
+  Rendered movies/edit.erb within layouts/application (Duration: 1.9ms | Allocations: 2012)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2118)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 24.7ms | Allocations: 18106)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section class="movies">
+    <div class="summary">
+<%= form_with(model: movie) do |f| %>
+      
+<!-- <%= movie.errors.full_messages.to_sentence %> -->
+<!-- <% if movie.errors.any? %>
+<section class="errors">
+  <h2>Oops! Your form could not be saved.</h2>
+  <h3>
+    Please correct the following
+    <%= pluralize(movie.errors.size, "error") %>:
+  </h3>
+  <ul>
+    <% movie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %> -->
+
+<%= render "movies/shared/errors", object: movie %>
+
+         
+         <div class="form-group">
+         <%= f.label :name%>
+         <%= f.text_field :name, autofocus: true %> 
+
+         <%= f.label :Year%>
+         <%= f.text_field :release_year%> 
+
+                <%= f.label :actor %>
+                <%= f.text_field :actor %>
+        
+                <%= f.label :showtime %>
+                <%= f.datetime_local_field :starts_at %>
+          
+                <%= f.label :description %>
+                <%= f.text_area :description, rows: 5 %>
+          
+                <%= f.label :producer %>
+                <%= f.text_field :producer %>
+          
+                <%= f.label :net_worth %>
+                <%= f.text_field :net_worth %>
+          
+                <%= f.label :price %>
+                <%= f.text_field :price %>
+
+                 <%= f.label :capacity %>
+                <%= f.text_field :capacity %> 
+
+                <%= f.label :upload_image%>
+                <%= f.text_field :image_file_name %> 
+
+                <div class="checkboxes">
+                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+                </div>
+          
+     <div>
+            <%= f.submit %> 
+        </div>
+</section>
+<% end %>
+
+
+):
+1:    <section class="movies">
+2:        <div class="summary">
+3:    <%= form_with(model: movie) do |f| %>
+4:          
+5:    <!-- <%= movie.errors.full_messages.to_sentence %> -->
+6:    <!-- <% if movie.errors.any? %>
+7:    <section class="errors">
+8:      <h2>Oops! Your form could not be saved.</h2>
+9:      <h3>
+10:        Please correct the following
+11:        <%= pluralize(movie.errors.size, "error") %>:
+12:      </h3>
+13:      <ul>
+14:        <% movie.errors.full_messages.each do |message| %>
+15:          <li><%= message %></li>
+16:        <% end %>
+17:      </ul>
+18:    </section>
+19:    <% end %> -->
+20:    
+21:    <%= render "movies/shared/errors", object: movie %>
+22:    
+23:             
+24:             <div class="form-group">
+25:             <%= f.label :name%>
+26:             <%= f.text_field :name, autofocus: true %> 
+27:    
+28:             <%= f.label :Year%>
+29:             <%= f.text_field :release_year%> 
+30:    
+31:                    <%= f.label :actor %>
+32:                    <%= f.text_field :actor %>
+33:            
+34:                    <%= f.label :showtime %>
+35:                    <%= f.datetime_local_field :starts_at %>
+36:              
+37:                    <%= f.label :description %>
+38:                    <%= f.text_area :description, rows: 5 %>
+39:              
+40:                    <%= f.label :producer %>
+41:                    <%= f.text_field :producer %>
+42:              
+43:                    <%= f.label :net_worth %>
+44:                    <%= f.text_field :net_worth %>
+45:              
+46:                    <%= f.label :price %>
+47:                    <%= f.text_field :price %>
+48:    
+49:                     <%= f.label :capacity %>
+50:                    <%= f.text_field :capacity %> 
+51:    
+52:                    <%= f.label :upload_image%>
+53:                    <%= f.text_field :image_file_name %> 
+54:    
+55:                    <div class="checkboxes">
+56:                    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+57:                    </div>
+58:              
+59:         <div>
+60:                <%= f.submit %> 
+61:            </div>
+62:    </section>
+63:    <% end %>
+  
+app/views/movies/partials/_form.html.erb:57: syntax error, unexpected '<'
+app/views/movies/partials/_form.html.erb:61: unknown regexp options - dv
+app/views/movies/partials/_form.html.erb:66: unterminated regexp meets end of file
+app/views/movies/edit.erb:3
+Started GET "/movies/40/edit" for 127.0.0.1 at 2024-09-12 21:34:48 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/partials/_form.html.erb (Duration: 1.7ms | Allocations: 1765)
+  Rendered movies/edit.erb within layouts/application (Duration: 3.7ms | Allocations: 2035)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2141)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 5.0ms | Allocations: 18165)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section class="movies">
+    <div class="summary">
+<%= form_with(model: movie) do |f| %>
+      
+<!-- <%= movie.errors.full_messages.to_sentence %> -->
+<!-- <% if movie.errors.any? %>
+<section class="errors">
+  <h2>Oops! Your form could not be saved.</h2>
+  <h3>
+    Please correct the following
+    <%= pluralize(movie.errors.size, "error") %>:
+  </h3>
+  <ul>
+    <% movie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %> -->
+
+<%= render "movies/shared/errors", object: movie %>
+
+         
+         <div class="form-group">
+         <%= f.label :name%>
+         <%= f.text_field :name, autofocus: true %> 
+
+         <%= f.label :Year%>
+         <%= f.text_field :release_year%> 
+
+                <%= f.label :actor %>
+                <%= f.text_field :actor %>
+        
+                <%= f.label :showtime %>
+                <%= f.datetime_local_field :starts_at %>
+          
+                <%= f.label :description %>
+                <%= f.text_area :description, rows: 5 %>
+          
+                <%= f.label :producer %>
+                <%= f.text_field :producer %>
+          
+                <%= f.label :net_worth %>
+                <%= f.text_field :net_worth %>
+          
+                <%= f.label :price %>
+                <%= f.text_field :price %>
+
+                 <%= f.label :capacity %>
+                <%= f.text_field :capacity %> 
+
+                <%= f.label :upload_image%>
+                <%= f.text_field :image_file_name %> 
+
+           
+                <%= f.label :genre %>
+                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+               
+          
+     <div>
+            <%= f.submit %> 
+        </div>
+</section>
+<% end %>
+
+
+):
+1:    <section class="movies">
+2:        <div class="summary">
+3:    <%= form_with(model: movie) do |f| %>
+4:          
+5:    <!-- <%= movie.errors.full_messages.to_sentence %> -->
+6:    <!-- <% if movie.errors.any? %>
+7:    <section class="errors">
+8:      <h2>Oops! Your form could not be saved.</h2>
+9:      <h3>
+10:        Please correct the following
+11:        <%= pluralize(movie.errors.size, "error") %>:
+12:      </h3>
+13:      <ul>
+14:        <% movie.errors.full_messages.each do |message| %>
+15:          <li><%= message %></li>
+16:        <% end %>
+17:      </ul>
+18:    </section>
+19:    <% end %> -->
+20:    
+21:    <%= render "movies/shared/errors", object: movie %>
+22:    
+23:             
+24:             <div class="form-group">
+25:             <%= f.label :name%>
+26:             <%= f.text_field :name, autofocus: true %> 
+27:    
+28:             <%= f.label :Year%>
+29:             <%= f.text_field :release_year%> 
+30:    
+31:                    <%= f.label :actor %>
+32:                    <%= f.text_field :actor %>
+33:            
+34:                    <%= f.label :showtime %>
+35:                    <%= f.datetime_local_field :starts_at %>
+36:              
+37:                    <%= f.label :description %>
+38:                    <%= f.text_area :description, rows: 5 %>
+39:              
+40:                    <%= f.label :producer %>
+41:                    <%= f.text_field :producer %>
+42:              
+43:                    <%= f.label :net_worth %>
+44:                    <%= f.text_field :net_worth %>
+45:              
+46:                    <%= f.label :price %>
+47:                    <%= f.text_field :price %>
+48:    
+49:                     <%= f.label :capacity %>
+50:                    <%= f.text_field :capacity %> 
+51:    
+52:                    <%= f.label :upload_image%>
+53:                    <%= f.text_field :image_file_name %> 
+54:    
+55:               
+56:                    <%= f.label :genre %>
+57:                    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+58:                   
+59:              
+60:         <div>
+61:                <%= f.submit %> 
+62:            </div>
+63:    </section>
+64:    <% end %>
+  
+app/views/movies/partials/_form.html.erb:60: syntax error, unexpected '<'
+app/views/movies/partials/_form.html.erb:64: syntax error, unexpected `end', expecting ')'
+app/views/movies/partials/_form.html.erb:67: syntax error, unexpected `end', expecting ')'
+app/views/movies/edit.erb:3
+Started GET "/movies/40/edit" for 127.0.0.1 at 2024-09-12 21:35:47 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.5ms | Allocations: 217)
+  Rendered movies/partials/_form.html.erb (Duration: 10.4ms | Allocations: 3814)
+  Rendered movies/edit.erb within layouts/application (Duration: 11.3ms | Allocations: 4058)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.2ms | Allocations: 2621)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | Allocations: 22499)
+Completed 200 OK in 83ms (Views: 48.2ms | ActiveRecord: 8.0ms | Allocations: 38431)
+
+
+Started GET "/movies/40/edit" for 127.0.0.1 at 2024-09-12 21:35:59 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/partials/_form.html.erb (Duration: 1.1ms | Allocations: 1764)
+  Rendered movies/edit.erb within layouts/application (Duration: 2.1ms | Allocations: 2034)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2140)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 9.0ms | Allocations: 18057)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section class="movies">
+    <div class="summary">
+<%= form_with(model: movie) do |f| %>
+      
+<!-- <%= movie.errors.full_messages.to_sentence %> -->
+<!-- <% if movie.errors.any? %>
+<section class="errors">
+  <h2>Oops! Your form could not be saved.</h2>
+  <h3>
+    Please correct the following
+    <%= pluralize(movie.errors.size, "error") %>:
+  </h3>
+  <ul>
+    <% movie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %> -->
+
+<%= render "movies/shared/errors", object: movie %>
+
+         
+         <div class="form-group">
+         <%= f.label :name%>
+         <%= f.text_field :name, autofocus: true %> 
+
+         <%= f.label :Year%>
+         <%= f.text_field :release_year%> 
+
+                <%= f.label :actor %>
+                <%= f.text_field :actor %>
+        
+                <%= f.label :showtime %>
+                <%= f.datetime_local_field :starts_at %>
+          
+                <%= f.label :description %>
+                <%= f.text_area :description, rows: 5 %>
+          
+                <%= f.label :producer %>
+                <%= f.text_field :producer %>
+          
+                <%= f.label :net_worth %>
+                <%= f.text_field :net_worth %>
+          
+                <%= f.label :price %>
+                <%= f.text_field :price %>
+
+                 <%= f.label :capacity %>
+                <%= f.text_field :capacity %> 
+
+                <%= f.label :upload_image%>
+                <%= f.text_field :image_file_name %> 
+          
+     <div>
+       <%= f.label :genre %>
+                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+            <%= f.submit %> 
+        </div>
+</section>
+<% end %>
+
+
+):
+1:    <section class="movies">
+2:        <div class="summary">
+3:    <%= form_with(model: movie) do |f| %>
+4:          
+5:    <!-- <%= movie.errors.full_messages.to_sentence %> -->
+6:    <!-- <% if movie.errors.any? %>
+7:    <section class="errors">
+8:      <h2>Oops! Your form could not be saved.</h2>
+9:      <h3>
+10:        Please correct the following
+11:        <%= pluralize(movie.errors.size, "error") %>:
+12:      </h3>
+13:      <ul>
+14:        <% movie.errors.full_messages.each do |message| %>
+15:          <li><%= message %></li>
+16:        <% end %>
+17:      </ul>
+18:    </section>
+19:    <% end %> -->
+20:    
+21:    <%= render "movies/shared/errors", object: movie %>
+22:    
+23:             
+24:             <div class="form-group">
+25:             <%= f.label :name%>
+26:             <%= f.text_field :name, autofocus: true %> 
+27:    
+28:             <%= f.label :Year%>
+29:             <%= f.text_field :release_year%> 
+30:    
+31:                    <%= f.label :actor %>
+32:                    <%= f.text_field :actor %>
+33:            
+34:                    <%= f.label :showtime %>
+35:                    <%= f.datetime_local_field :starts_at %>
+36:              
+37:                    <%= f.label :description %>
+38:                    <%= f.text_area :description, rows: 5 %>
+39:              
+40:                    <%= f.label :producer %>
+41:                    <%= f.text_field :producer %>
+42:              
+43:                    <%= f.label :net_worth %>
+44:                    <%= f.text_field :net_worth %>
+45:              
+46:                    <%= f.label :price %>
+47:                    <%= f.text_field :price %>
+48:    
+49:                     <%= f.label :capacity %>
+50:                    <%= f.text_field :capacity %> 
+51:    
+52:                    <%= f.label :upload_image%>
+53:                    <%= f.text_field :image_file_name %> 
+54:              
+55:         <div>
+56:           <%= f.label :genre %>
+57:                    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)
+58:                <%= f.submit %> 
+59:            </div>
+60:    </section>
+61:    <% end %>
+  
+app/views/movies/partials/_form.html.erb:58: syntax error, unexpected '<'
+app/views/movies/partials/_form.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/movies/partials/_form.html.erb:64: syntax error, unexpected `end', expecting ')'
+app/views/movies/edit.erb:3
+Started GET "/movies/40/edit" for 127.0.0.1 at 2024-09-12 21:36:52 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.4ms | Allocations: 214)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (0.2ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 46.6ms | Allocations: 13252)
+  Rendered movies/edit.erb within layouts/application (Duration: 47.8ms | Allocations: 13496)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.1ms | Allocations: 2623)
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 88.1ms | Allocations: 31994)
+Completed 200 OK in 136ms (Views: 86.9ms | ActiveRecord: 12.9ms | Allocations: 47905)
+
+
+Started GET "/movies/40/edit" for 127.0.0.1 at 2024-09-12 21:37:41 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.8ms | Allocations: 214)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (0.2ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 40]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 27.7ms | Allocations: 12125)
+  Rendered movies/edit.erb within layouts/application (Duration: 28.9ms | Allocations: 12369)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 7.8ms | Allocations: 2621)
+  Rendered layouts/_flash.erb (Duration: 0.8ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 65.6ms | Allocations: 30810)
+Completed 200 OK in 162ms (Views: 69.0ms | ActiveRecord: 10.3ms | Allocations: 46717)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-12 22:42:26 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (40.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 21:42:26.166218') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 53.5ms | Allocations: 5633)
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 27.3ms | Allocations: 2295)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 86.8ms | Allocations: 9348)
+Completed 200 OK in 97ms (Views: 26.9ms | ActiveRecord: 60.7ms | Allocations: 9991)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 22:42:31 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (3.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (6.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (11.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 42.4ms | Allocations: 8681)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 10.6ms | Allocations: 2161)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 12056)
+Completed 200 OK in 164ms (Views: 40.4ms | ActiveRecord: 30.4ms | Allocations: 20375)
+
+
+Started GET "/movies/44/edit" for 127.0.0.1 at 2024-09-12 22:42:34 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.0ms | Allocations: 12)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (2.0ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 9.6ms | Allocations: 3843)
+  Rendered movies/edit.erb within layouts/application (Duration: 9.9ms | Allocations: 3910)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.7ms | Allocations: 2160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 7409)
+Completed 200 OK in 23ms (Views: 17.1ms | ActiveRecord: 2.7ms | Allocations: 9017)
+
+
+Started PATCH "/movies/44" for 127.0.0.1 at 2024-09-12 22:46:30 +0100
+Processing by MoviesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Her 4", "release_year"=>"2013", "actor"=>"Joaquin Phoenix", "starts_at"=>"2025-12-18T08:00", "description"=>"In a near future, a lonely writer develops an unlikely relationship with an operating system designed to meet his every need.", "producer"=>"Megan Ellison", "net_worth"=>"30000000", "price"=>"70.0", "capacity"=>"1", "image_file_name"=>"her.webp", "category_ids"=>["", "1", "2", "3"]}, "commit"=>"Update Movie", "id"=>"44"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+[31mUnpermitted parameter: :category_ids. Context: { controller: MoviesController, action: update, request: #<ActionDispatch::Request:0x000000011254bd80>, params: {"_method"=>"patch", "authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Her 4", "release_year"=>"2013", "actor"=>"Joaquin Phoenix", "starts_at"=>"2025-12-18T08:00", "description"=>"In a near future, a lonely writer develops an unlikely relationship with an operating system designed to meet his every need.", "producer"=>"Megan Ellison", "net_worth"=>"30000000", "price"=>"70.0", "capacity"=>"1", "image_file_name"=>"her.webp", "category_ids"=>["", "1", "2", "3"]}, "commit"=>"Update Movie", "controller"=>"movies", "action"=>"update", "id"=>"44"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 1.0ms | Allocations: 520)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (0.4ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 53.8ms | Allocations: 13525)
+  Rendered movies/edit.erb within layouts/application (Duration: 56.0ms | Allocations: 13769)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.0ms | Allocations: 2621)
+  Rendered layouts/_flash.erb (Duration: 1.4ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 89.5ms | Allocations: 32208)
+Completed 422 Unprocessable Content in 138ms (Views: 83.2ms | ActiveRecord: 19.9ms | Allocations: 49992)
+
+
+Started PATCH "/movies/44" for 127.0.0.1 at 2024-09-12 22:47:04 +0100
+Processing by MoviesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Her 4", "release_year"=>"2013", "actor"=>"Joaquin Phoenix", "starts_at"=>"2025-12-18T08:00", "description"=>"In a near future, a lonely writer develops an unlikely relationship", "producer"=>"Megan Ellison", "net_worth"=>"30000000", "price"=>"70.0", "capacity"=>"1", "image_file_name"=>"her.webp", "category_ids"=>["", "1", "2", "3"]}, "commit"=>"Update Movie", "id"=>"44"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+[31mUnpermitted parameter: :category_ids. Context: { controller: MoviesController, action: update, request: #<ActionDispatch::Request:0x0000000111680be8>, params: {"_method"=>"patch", "authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Her 4", "release_year"=>"2013", "actor"=>"Joaquin Phoenix", "starts_at"=>"2025-12-18T08:00", "description"=>"In a near future, a lonely writer develops an unlikely relationship", "producer"=>"Megan Ellison", "net_worth"=>"30000000", "price"=>"70.0", "capacity"=>"1", "image_file_name"=>"her.webp", "category_ids"=>["", "1", "2", "3"]}, "commit"=>"Update Movie", "controller"=>"movies", "action"=>"update", "id"=>"44"} }[0m
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+  [1m[36mMovie Update (30.6ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "description" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-12 21:47:04.347149"], ["description", "In a near future, a lonely writer develops an unlikely relationship"], ["id", 44]]
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+  [1m[36mTRANSACTION (20.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+Redirected to http://127.0.0.1:3000/movies/44
+Completed 302 Found in 72ms (ActiveRecord: 63.6ms | Allocations: 4576)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 22:47:04 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (1.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 37.0ms | Allocations: 8671)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.2ms | Allocations: 2162)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 12052)
+Completed 200 OK in 105ms (Views: 52.4ms | ActiveRecord: 14.8ms | Allocations: 20335)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 22:47:12 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (2.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (61.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (5.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 99.1ms | Allocations: 4404)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 185.2ms | Allocations: 2163)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 288.2ms | Allocations: 7786)
+Completed 200 OK in 314ms (Views: 223.2ms | ActiveRecord: 73.3ms | Allocations: 11018)
+
+
+Started GET "/movies/44/edit" for 127.0.0.1 at 2024-09-12 22:47:20 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.1ms | Allocations: 12)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (1.3ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 14.5ms | Allocations: 3842)
+  Rendered movies/edit.erb within layouts/application (Duration: 14.8ms | Allocations: 3909)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 10.7ms | Allocations: 2160)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 7408)
+Completed 200 OK in 36ms (Views: 29.7ms | ActiveRecord: 2.0ms | Allocations: 9044)
+
+
+Started PATCH "/movies/44" for 127.0.0.1 at 2024-09-12 22:47:28 +0100
+Processing by MoviesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Her 4", "release_year"=>"2013", "actor"=>"Joaquin Phoenix", "starts_at"=>"2025-12-18T08:00", "description"=>"In a near future, a lonely writer develops an unlikely relationship", "producer"=>"Megan Ellison", "net_worth"=>"30000000", "price"=>"70.0", "capacity"=>"1", "image_file_name"=>"her.webp", "category_ids"=>["", "1", "2", "3"]}, "commit"=>"Update Movie", "id"=>"44"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+[31mUnpermitted parameter: :category_ids. Context: { controller: MoviesController, action: update, request: #<ActionDispatch::Request:0x0000000111feed88>, params: {"_method"=>"patch", "authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Her 4", "release_year"=>"2013", "actor"=>"Joaquin Phoenix", "starts_at"=>"2025-12-18T08:00", "description"=>"In a near future, a lonely writer develops an unlikely relationship", "producer"=>"Megan Ellison", "net_worth"=>"30000000", "price"=>"70.0", "capacity"=>"1", "image_file_name"=>"her.webp", "category_ids"=>["", "1", "2", "3"]}, "commit"=>"Update Movie", "controller"=>"movies", "action"=>"update", "id"=>"44"} }[0m
+Redirected to http://127.0.0.1:3000/movies/44
+Completed 302 Found in 16ms (ActiveRecord: 1.0ms | Allocations: 2110)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 22:47:28 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 25.6ms | Allocations: 4397)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 7.2ms | Allocations: 2162)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 36.7ms | Allocations: 7778)
+Completed 200 OK in 57ms (Views: 35.2ms | ActiveRecord: 4.1ms | Allocations: 11030)
+
+
+Started GET "/movies/44/edit" for 127.0.0.1 at 2024-09-12 22:49:33 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (16.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.4ms | Allocations: 214)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (0.6ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 38.0ms | Allocations: 12104)
+  Rendered movies/edit.erb within layouts/application (Duration: 39.4ms | Allocations: 12348)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.5ms | Allocations: 2621)
+  Rendered layouts/_flash.erb (Duration: 1.5ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 72.2ms | Allocations: 30787)
+Completed 200 OK in 162ms (Views: 63.7ms | ActiveRecord: 47.1ms | Allocations: 46695)
+
+
+Started PATCH "/movies/44" for 127.0.0.1 at 2024-09-12 22:49:38 +0100
+Processing by MoviesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Her 4", "release_year"=>"2013", "actor"=>"Joaquin Phoenix", "starts_at"=>"2025-12-18T08:00", "description"=>"In a near future, a lonely writer develops an unlikely relationship", "producer"=>"Megan Ellison", "net_worth"=>"30000000", "price"=>"70.0", "capacity"=>"1", "image_file_name"=>"her.webp", "category_ids"=>["", "1", "2", "3"]}, "commit"=>"Update Movie", "id"=>"44"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+  [1m[36mCategory Load (6.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2, $3)[0m  [["id", 1], ["id", 2], ["id", 3]]
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+  [1m[36mCategorization Create (21.2ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["category_id", 3], ["created_at", "2024-09-12 21:49:38.945509"], ["updated_at", "2024-09-12 21:49:38.945509"]]
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:37:in `update'
+Redirected to http://127.0.0.1:3000/movies/44
+Completed 302 Found in 75ms (ActiveRecord: 31.0ms | Allocations: 10877)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-12 22:49:38 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:73:in `find_movie'
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:40:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 28.0ms | Allocations: 7850)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.3ms | Allocations: 2162)
+  Rendered layouts/_flash.erb (Duration: 0.2ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 11231)
+Completed 200 OK in 56ms (Views: 31.8ms | ActiveRecord: 8.9ms | Allocations: 17178)
+
+

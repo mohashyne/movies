@@ -5,6 +5,9 @@ has_many :likes,  dependent: :destroy
 # wee want to call those that liked a movie likers , instad of users, so we have to specifie source for the likers
 has_many :likers, through: :likes, source: :user
 
+has_many :categorizations, dependent: :destroy
+has_many :categories, through: :categorizations
+
 
 
 
