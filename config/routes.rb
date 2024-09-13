@@ -40,6 +40,9 @@ Rails
   .routes
   .draw do
     resources :users
+    resource  :categories
+
+    get "movies/filter/:filter" => "movies#index", as: :filter  
 
     # resources :sessions, only: [:new, :create, :destroy] # since we don't need all the paths
     # we specify only the paths we need

@@ -12,7 +12,17 @@
           <% end %>
         </li>
         <li>
-          <%= link_to 'All Movies', movies_path %>
+          <%= link_to 'Upcoming', movies_path %>
+        </li>
+        <li>
+          <%= link_to 'Past', filter_path(:past) %>
+        </li>
+        <li>
+          <%= link_to 'Free', filter_path(:free) %>
+        </li>
+
+        <li>
+          <%= link_to 'Recent', filter_path(:recent) %>
         </li>
 
         <% if current_user_admin? %>

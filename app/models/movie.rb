@@ -26,7 +26,7 @@ has_many :categories, through: :categorizations
          }  
 
 # turn methods into a scope
-scope :past, -> { where("starts_at > ?", Time.now).order("starts_at") }
+scope :past, -> { where("starts_at < ?", Time.now).order("starts_at") }
 scope :upcoming, -> {  where("starts_at > ?", Time.now).order("starts_at") }
 scope :free, -> {  upcoming.where(price: 0.0).order(:name) }
 scope :recent, ->(max=3) {  past.limit(max) }

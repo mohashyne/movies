@@ -4,6 +4,14 @@ class MoviesController < ApplicationController
   before_action :require_admin, except: [:index, :show]
 
   def index
+    case params[:filter]
+    when "past"
+      @movies = Movie.past
+    when "free"
+      @movies = Movie.free
+   when "recent"
+      @movies = Movie.recent
+    else
     # all movies
     # @movies = Movie.all
 
@@ -11,6 +19,7 @@ class MoviesController < ApplicationController
     # rather we defin the upcoming in the movie class
     # @movies = Movie.where("starts_at > ?", Time.now).order("starts_at")
     @movies = Movie.upcoming
+    end
   end
 
   def show

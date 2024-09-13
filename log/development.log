@@ -39750,3 +39750,418 @@ Completed 200 OK in 56ms (Views: 31.8ms | ActiveRecord: 8.9ms | Allocations: 171
   [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:15:40.465051') AND "movies"."price" = $1 /* loading for pp */ ORDER BY starts_at, "movies"."name" ASC LIMIT $2[0m  [["price", "0.0"], ["LIMIT", 11]]
   [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:17:55.703741') AND "movies"."price" = $1 /* loading for pp */ ORDER BY starts_at, "movies"."name" ASC LIMIT $2[0m  [["price", "0.0"], ["LIMIT", 11]]
   [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:20:33.912449') /* loading for pp */ ORDER BY starts_at LIMIT $1[0m  [["LIMIT", 3]]
+Started DELETE "/session" for 127.0.0.1 at 2024-09-13 00:25:27 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Sign Out"}
+Redirected to http://127.0.0.1:3000/movies
+Completed 303 See Other in 8ms (ActiveRecord: 0.0ms | Allocations: 474)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-13 00:25:27 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (38.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:25:27.677621') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 60.5ms | Allocations: 10229)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 869)
+  Rendered layouts/_flash.erb (Duration: 0.7ms | Allocations: 219)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 104.6ms | Allocations: 26985)
+Completed 200 OK in 137ms (Views: 54.0ms | ActiveRecord: 54.5ms | Allocations: 31197)
+
+
+Started GET "/movies?filter=past" for 127.0.0.1 at 2024-09-13 00:30:58 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"past"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (93.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:30:58.572820') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 120.8ms | Allocations: 10192)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 869)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 150.9ms | Allocations: 26947)
+Completed 200 OK in 180ms (Views: 47.4ms | ActiveRecord: 106.1ms | Allocations: 31061)
+
+
+Started GET "/movies?filter=free" for 127.0.0.1 at 2024-09-13 00:31:52 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"free"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:31:52.621721') AND "movies"."price" = $1 ORDER BY starts_at, "movies"."name" ASC[0m  [["price", "0.0"]]
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 6.3ms | Allocations: 1614)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 450)
+  Rendered layouts/_flash.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3468)
+Completed 200 OK in 20ms (Views: 10.5ms | ActiveRecord: 0.9ms | Allocations: 3847)
+
+
+Started GET "/movies?filter=recent" for 127.0.0.1 at 2024-09-13 00:32:06 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"recent"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:32:06.688828') ORDER BY starts_at LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 6.7ms | Allocations: 1995)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 450)
+  Rendered layouts/_flash.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 3855)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.7ms | Allocations: 4171)
+
+
+Started GET "/movies?filter=past" for 127.0.0.1 at 2024-09-13 00:32:23 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"past"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:32:23.768143') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 9.9ms | Allocations: 2546)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 450)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 4394)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.4ms | Allocations: 4693)
+
+
+Started GET "/movies?filter=past" for 127.0.0.1 at 2024-09-13 00:32:29 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"past"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-12 23:32:29.555070') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 11.1ms | Allocations: 2546)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 450)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 4388)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.4ms | Allocations: 4688)
+
+
+Started GET "/movies?filter=past" for 127.0.0.1 at 2024-09-13 00:32:54 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"past"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (5.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at < '2024-09-12 23:32:55.131029') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 39.8ms | Allocations: 18328)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 869)
+  Rendered layouts/_flash.erb (Duration: 0.7ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 70.4ms | Allocations: 35058)
+Completed 200 OK in 88ms (Views: 59.9ms | ActiveRecord: 13.9ms | Allocations: 39151)
+
+
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:26:53 +0100
+  
+ArgumentError ('Categories' is not a supported controller name. This can lead to potential routing problems. See https://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:43:in `block in <main>'
+config/routes.rb:41:in `<main>'
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:27:05 +0100
+  
+ActionController::RoutingError (uninitialized constant EventsController):
+  
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:27:19 +0100
+  
+ActionController::RoutingError (uninitialized constant EventsController):
+  
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:27:24 +0100
+  
+ActionController::RoutingError (uninitialized constant EventsController):
+  
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:27:41 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"free"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (11.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-13 16:27:41.675087') AND "movies"."price" = $1 ORDER BY starts_at, "movies"."name" ASC[0m  [["price", "0.0"]]
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 37.2ms | Allocations: 6480)
+  Rendered layouts/_header.html.erb (Duration: 3.4ms | Allocations: 869)
+  Rendered layouts/_flash.erb (Duration: 1.0ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 80.2ms | Allocations: 23211)
+Completed 200 OK in 240ms (Views: 73.2ms | ActiveRecord: 63.9ms | Allocations: 30258)
+
+
+Started GET "/rails/info/routes" for 127.0.0.1 at 2024-09-13 17:27:52 +0100
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/muhammadibnsalyhu/.rvm/gems/ruby-3.2.2/gems/railties-7.1.3.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/muhammadibnsalyhu/.rvm/gems/ruby-3.2.2/gems/railties-7.1.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/muhammadibnsalyhu/.rvm/gems/ruby-3.2.2/gems/actionpack-7.1.3.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [74 times] (Duration: 18.5ms | Allocations: 15498)
+  Rendered /Users/muhammadibnsalyhu/.rvm/gems/ruby-3.2.2/gems/actionpack-7.1.3.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.2ms | Allocations: 688)
+  Rendered /Users/muhammadibnsalyhu/.rvm/gems/ruby-3.2.2/gems/railties-7.1.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 30.2ms | Allocations: 22877)
+  Rendered layout /Users/muhammadibnsalyhu/.rvm/gems/ruby-3.2.2/gems/railties-7.1.3.4/lib/rails/templates/layouts/application.html.erb (Duration: 31.4ms | Allocations: 23153)
+Completed 200 OK in 44ms (Views: 39.8ms | ActiveRecord: 0.0ms | Allocations: 24049)
+
+
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:33:42 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"free"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-13 16:33:42.791169') AND "movies"."price" = $1 ORDER BY starts_at, "movies"."name" ASC[0m  [["price", "0.0"]]
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 13.8ms | Allocations: 6442)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 935)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 47.9ms | Allocations: 23250)
+Completed 200 OK in 92ms (Views: 49.7ms | ActiveRecord: 14.5ms | Allocations: 30235)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2024-09-13 17:33:45 +0100
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2577)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 475)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 4399)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 4847)
+
+
+Started POST "/session" for 127.0.0.1 at 2024-09-13 17:33:57 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"admin@msa.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@msa.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/movies/44
+Completed 302 Found in 300ms (ActiveRecord: 39.4ms | Allocations: 5754)
+
+
+Started GET "/movies/44" for 127.0.0.1 at 2024-09-13 17:33:58 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+  [1m[36mLike Load (8.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:33:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (8.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:52:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 62.9ms | Allocations: 12306)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.7ms | Allocations: 2251)
+  Rendered layouts/_flash.erb (Duration: 0.8ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 76.5ms | Allocations: 15785)
+Completed 200 OK in 146ms (Views: 57.7ms | ActiveRecord: 30.9ms | Allocations: 25457)
+
+
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:34:10 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"free"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (3.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-13 16:34:10.313516') AND "movies"."price" = $1 ORDER BY starts_at, "movies"."name" ASC[0m  [["price", "0.0"]]
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 8.9ms | Allocations: 1610)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 12.1ms | Allocations: 2306)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 5316)
+Completed 200 OK in 30ms (Views: 23.8ms | ActiveRecord: 3.9ms | Allocations: 5663)
+
+
+Started GET "/movies/filter/past" for 127.0.0.1 at 2024-09-13 17:34:13 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"past"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at < '2024-09-13 16:34:13.183259') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 17.8ms | Allocations: 12749)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 9.9ms | Allocations: 2306)
+  Rendered layouts/_flash.erb (Duration: 0.3ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 16461)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 1.6ms | Allocations: 16763)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-13 17:34:15 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (2.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-13 16:34:15.696177') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 10.9ms | Allocations: 2546)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 7.6ms | Allocations: 2306)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 6249)
+Completed 200 OK in 73ms (Views: 22.8ms | ActiveRecord: 2.3ms | Allocations: 6550)
+
+
+Started GET "/movies" for 127.0.0.1 at 2024-09-13 17:34:55 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-13 16:34:55.617895') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 6.5ms | Allocations: 2546)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 12.0ms | Allocations: 2306)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 6249)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 1.4ms | Allocations: 6548)
+
+
+Started GET "/movies/filter/past" for 127.0.0.1 at 2024-09-13 17:34:58 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"past"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at < '2024-09-13 16:34:58.799887') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 27.3ms | Allocations: 12758)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.8ms | Allocations: 2313)
+  Rendered layouts/_flash.erb (Duration: 0.3ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 16471)
+Completed 200 OK in 39ms (Views: 36.9ms | ActiveRecord: 0.8ms | Allocations: 16771)
+
+
+Started GET "/movies/filter/free" for 127.0.0.1 at 2024-09-13 17:35:00 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"free"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (3.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-13 16:35:00.344392') AND "movies"."price" = $1 ORDER BY starts_at, "movies"."name" ASC[0m  [["price", "0.0"]]
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 9.8ms | Allocations: 1611)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 10.3ms | Allocations: 2306)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 5311)
+Completed 200 OK in 30ms (Views: 24.6ms | ActiveRecord: 3.5ms | Allocations: 5657)
+
+
+Started GET "/movies/filter/recent" for 127.0.0.1 at 2024-09-13 17:35:02 +0100
+Processing by MoviesController#index as HTML
+  Parameters: {"filter"=>"recent"}
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at < '2024-09-13 16:35:02.137503') ORDER BY starts_at LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 6.3ms | Allocations: 1993)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.8ms | Allocations: 2306)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 5702)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.7ms | Allocations: 6016)
+
+
