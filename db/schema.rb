@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_09_102958) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_13_211612) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_102958) do
     t.text "description"
     t.string "image_file_name", default: "placeholder.jpg"
     t.integer "capacity", default: 1
+    t.string "slug"
   end
 
   create_table "registrations", force: :cascade do |t|

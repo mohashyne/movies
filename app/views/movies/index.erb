@@ -5,7 +5,7 @@
 <%= image_tag movie.image_file_name %>
 </div>
     <div class="summary">
-      <h3><%= link_to movie.name, movie %>  [ <%= movie.release_year %> ] </h3>
+      <h3><%= link_to movie.name, movie_path(movie) %>  [ <%= movie.release_year %> ] </h3>
       <h3>by <%=movie.actor%></h3>
       <span class="price">
         ShowTime: <%= movie.starts_at.strftime("%B %d at %I:%M %P") %>

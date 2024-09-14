@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
    
   before_action :require_signin, except: [:index, :show]
   before_action :require_admin, except: [:index, :show]
+  before_action :find_movie, only: [:show, :edit, :update, :destroy]
 
   def index
     case params[:filter]
@@ -25,7 +26,10 @@ class MoviesController < ApplicationController
   def show
     #fail # this a old way debugging trick
     # @movie = Movie.find(1)
-    find_movie
+
+    # already call above " before_action :find_movie, only: [:show, :edit, :update, :destroy]"
+    # find_movie
+
     @likers =  find_movie.likers
     @categories = find_movie.categories
     
@@ -35,14 +39,17 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    find_movie
+    # already call above " before_action :find_movie, only: [:show, :edit, :update, :destroy]"
+
+    # already call above " before_action :find_movie, only: [:show, :edit, :update, :destroy]"
+    # find_movie
   end
 
   def update
     #  we need the movies id again , because instance variable
     # donot live on after the action runs, thats why we called it here
     # again despite calling it on edit.
-    find_movie
+    # find_movie
     if @movie.update(permitted_values)
     #  flash[:notice] = "Event sucessfully updated!"  
 
@@ -70,7 +77,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    find_movie
+    # find_movie
     @movie.destroy
     redirect_to movies_url, status: :see_other, #turbolinks: false
       alert: "Movie was successfully destroyed."
@@ -79,7 +86,9 @@ class MoviesController < ApplicationController
   private
 
   def find_movie
-    @movie = Movie.find(params[:id])
+    # @movie = Movie.find(params[:id])  [REMEMBER TO CHANGE THIS ONN REGISTRATION AND LIKE]
+    # AND OTHER PLACES THAT FINDS BY ID
+    @movie = Movie.find_by!(slug: params[:id])
   end
 
   def permitted_values

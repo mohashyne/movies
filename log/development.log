@@ -40165,3 +40165,1325 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.7ms | Allocations: 6016)
 
 
+Started GET "/rails/info/routes?query=mmo" for 127.0.0.1 at 2024-09-13 21:49:37 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"mmo"}
+Completed 200 OK in 33ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 15753)
+
+
+Started GET "/rails/info/routes?query=mmovie" for 127.0.0.1 at 2024-09-13 21:49:38 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"mmovie"}
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 13652)
+
+
+Started GET "/rails/info/routes?query=mmovie" for 127.0.0.1 at 2024-09-13 21:49:40 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"mmovie"}
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 13649)
+
+
+Started GET "/rails/info/routes?query=m" for 127.0.0.1 at 2024-09-13 21:49:41 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"m"}
+Completed 200 OK in 11ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 11584)
+
+
+Started GET "/rails/info/routes?query=mo" for 127.0.0.1 at 2024-09-13 21:49:42 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"mo"}
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 13116)
+
+
+Started GET "/rails/info/routes?query=movie" for 127.0.0.1 at 2024-09-13 21:49:43 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"movie"}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 13085)
+
+
+Started GET "/rails/info/routes?query=movie" for 127.0.0.1 at 2024-09-13 21:49:43 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"query"=>"movie"}
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 13083)
+
+
+  [1m[36mMovie Load (15.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Her 4"], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Her 4"], ["LIMIT", 1]]
+Started GET "/movies" for 127.0.0.1 at 2024-09-13 22:01:51 +0100
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.erb within layouts/application
+  [1m[36mMovie Load (58.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (starts_at > '2024-09-13 21:01:51.322882') ORDER BY starts_at[0m
+  ↳ app/views/movies/index.erb:2
+  Rendered movies/index.erb within layouts/application (Duration: 96.6ms | Allocations: 10231)
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 28.0ms | Allocations: 8078)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 158.9ms | Allocations: 34175)
+Completed 200 OK in 202ms (Views: 76.1ms | ActiveRecord: 90.5ms | Allocations: 38375)
+
+
+Started GET "/movies/the-social-network-2" for 127.0.0.1 at 2024-09-13 22:01:55 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"the-social-network-2"}
+  [1m[36mMovie Load (1.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+Completed 404 Not Found in 76ms (ActiveRecord: 1.6ms | Allocations: 1442)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with 'id'=the-social-network-2):
+  
+app/controllers/movies_controller.rb:82:in `find_movie'
+app/controllers/movies_controller.rb:28:in `show'
+Started GET "/movies/the-social-network-2" for 127.0.0.1 at 2024-09-13 22:04:06 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"the-social-network-2"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+Completed 404 Not Found in 38ms (ActiveRecord: 19.6ms | Allocations: 5182)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with 'id'=the-social-network-2):
+  
+app/controllers/movies_controller.rb:82:in `find_movie'
+app/controllers/movies_controller.rb:28:in `show'
+Started GET "/movies/the-social-network-2" for 127.0.0.1 at 2024-09-13 22:04:49 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"the-social-network-2"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+Completed 404 Not Found in 14ms (ActiveRecord: 2.7ms | Allocations: 5157)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with 'id'=#<MoviesController:0x00000001118a0298>):
+  
+app/controllers/movies_controller.rb:82:in `find_movie'
+app/controllers/movies_controller.rb:28:in `show'
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (8.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddSlugToMovies (20240913211612)
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.1ms)[0m  [1m[35mALTER TABLE "movies" ADD "slug" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240913211612') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5110850682661079685)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mMovie Load (12.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Her 4"], ["LIMIT", 1]]
+  [1m[36mMovie Load (4.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Her 4"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her 4"], ["id", 44], ["LIMIT", 1]]
+  [1m[36mMovie Update (25.9ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:22:58.357163"], ["slug", "her-4"], ["id", 44]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/movies/the-social-network-2" for 127.0.0.1 at 2024-09-13 22:23:46 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"the-social-network-2"}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "the-social-network-2"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+Completed 404 Not Found in 46ms (ActiveRecord: 6.6ms | Allocations: 7401)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with [WHERE "movies"."slug" = $1]):
+  
+app/controllers/movies_controller.rb:82:in `find_movie'
+app/controllers/movies_controller.rb:28:in `show'
+  [1m[36mMovie Load (6.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 14], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 31], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 32], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network"], ["id", 18], ["LIMIT", 1]]
+  [1m[36mMovie Update (1.2ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:25:00.341991"], ["slug", "the-social-network"], ["id", 18]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix"], ["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 20], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 21], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her"], ["id", 22], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Iron Man"], ["id", 23], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 24], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 25], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 26], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 27], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 28], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 35], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 36], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 37], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 38], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 39], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 42], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 43], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (6.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 40], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix 4"], ["id", 41], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 46], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (9.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 48], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (4.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 49], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 50], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Joker"], ["id", 51], ["LIMIT", 1]]
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:25:00.511191"], ["slug", "the-joker"], ["id", 51]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (8.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 29], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Spiderman"], ["id", 52], ["LIMIT", 1]]
+  [1m[36mMovie Update (0.6ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:25:00.526935"], ["slug", "spiderman"], ["id", 52]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (4.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 53], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her 4"], ["id", 44], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/movies/the-social-network-2" for 127.0.0.1 at 2024-09-13 22:25:07 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"the-social-network-2"}
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "the-social-network-2"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:82:in `find_movie'
+Completed 404 Not Found in 5ms (ActiveRecord: 1.4ms | Allocations: 1141)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with [WHERE "movies"."slug" = $1]):
+  
+app/controllers/movies_controller.rb:82:in `find_movie'
+app/controllers/movies_controller.rb:28:in `show'
+  [1m[36mMovie Pluck (0.3ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+  [1m[36mMovie Pluck (0.3ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+  [1m[36mMovie Pluck (0.7ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+  [1m[36mMovie Load (1.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 14], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 31], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 32], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix"], ["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 20], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 21], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her"], ["id", 22], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Iron Man"], ["id", 23], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 24], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (6.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 25], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 26], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 27], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 28], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 35], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 36], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 37], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 38], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 39], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 42], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 43], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 40], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix 4"], ["id", 41], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network"], ["id", 18], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 46], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 48], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 49], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (5.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 50], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 29], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 53], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her 4"], ["id", 44], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Joker"], ["id", 51], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Spiderman"], ["id", 52], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMovie Pluck (0.4ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 14], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (6.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 31], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 32], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix"], ["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 20], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 21], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her"], ["id", 22], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Iron Man"], ["id", 23], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 24], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 25], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 26], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 27], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 28], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 35], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 36], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 37], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 38], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 39], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (44.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 42], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (36.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (7.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 43], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 40], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix 4"], ["id", 41], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network"], ["id", 18], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 46], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 48], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (4.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 49], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 50], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 29], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 53], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her 4"], ["id", 44], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Joker"], ["id", 51], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Spiderman"], ["id", 52], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMovie Pluck (0.3ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+  [1m[36mMovie Load (3.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 14], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 31], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 32], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix"], ["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 20], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 21], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her"], ["id", 22], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Iron Man"], ["id", 23], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (5.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 24], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 25], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 26], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 27], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 28], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 35], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 36], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 37], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 38], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 39], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 42], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 43], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 40], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix 4"], ["id", 41], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network"], ["id", 18], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 46], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (5.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 48], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 49], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 50], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 29], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 53], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her 4"], ["id", 44], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Joker"], ["id", 51], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (7.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Spiderman"], ["id", 52], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMovie Pluck (0.5ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+  [1m[36mMovie Load (1.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Update (6.1ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:44:52.540430"], ["slug", "blade-runner-2049"], ["id", 31]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Update (8.7ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:44:52.556232"], ["slug", "blade-runner-2049"], ["id", 20]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Update (0.8ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:44:52.577520"], ["slug", "blade-runner-2049"], ["id", 42]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Update (0.8ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:44:52.586711"], ["slug", "the-social-network-2"], ["id", 40]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Update (1.5ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:44:52.591848"], ["slug", "the-social-network-2"], ["id", 29]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Update (1.6ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:44:52.595246"], ["slug", "tron-legacy"], ["id", 53]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMovie Pluck (0.3ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 14], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 32], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix"], ["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 21], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her"], ["id", 22], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Iron Man"], ["id", 23], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 24], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 25], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 26], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 27], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 28], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (3.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 35], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 36], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 37], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (5.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 38], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 39], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ex Machina"], ["id", 43], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network"], ["id", 18], ["LIMIT", 1]]
+  [1m[36mMovie Update (0.6ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:46:31.290919"], ["slug", "the-social-network"], ["id", 18]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Matrix 4"], ["id", 41], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 40], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 42], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 20], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Blade Runner 2049"], ["id", 31], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Ghost in the Shell"], ["id", 46], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Minority Report"], ["id", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 48], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "WarGames"], ["id", 49], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Hackers"], ["id", 50], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Social Network 2"], ["id", 29], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Spiderman"], ["id", 52], ["LIMIT", 1]]
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:46:31.355763"], ["slug", "spiderman"], ["id", 52]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Tron: Legacy"], ["id", 53], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (18.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "The Joker"], ["id", 51], ["LIMIT", 1]]
+  [1m[36mMovie Update (2.9ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:46:31.385566"], ["slug", "the-joker"], ["id", 51]]
+  [1m[36mTRANSACTION (20.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 AND "movies"."id" != $2 LIMIT $3[0m  [["name", "Her 4"], ["id", 44], ["LIMIT", 1]]
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "updated_at" = $1, "slug" = $2 WHERE "movies"."id" = $3[0m  [["updated_at", "2024-09-13 21:46:31.415316"], ["slug", "her-4"], ["id", 44]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMovie Pluck (0.3ms)[0m  [1m[34mSELECT "movies"."slug" FROM "movies"[0m
+Started GET "/movies/her-4" for 127.0.0.1 at 2024-09-13 22:55:09 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"her-4"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:29:in `show'
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mLike Load (1.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:34:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (14.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mRegistration Count (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:58:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 67.8ms | Allocations: 11829)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 7.5ms | Allocations: 2737)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 2.1ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 113.5ms | Allocations: 30232)
+Completed 200 OK in 278ms (Views: 96.2ms | ActiveRecord: 53.1ms | Allocations: 54625)
+
+
+Started GET "/movies/her-4/edit" for 127.0.0.1 at 2024-09-13 23:16:46 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"her-4"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:83:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 1.9ms | Allocations: 214)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (0.9ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 36.6ms | Allocations: 11729)
+  Rendered movies/edit.erb within layouts/application (Duration: 38.0ms | Allocations: 11973)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.8ms | Allocations: 2735)
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 73.8ms | Allocations: 30334)
+Completed 200 OK in 137ms (Views: 74.5ms | ActiveRecord: 10.2ms | Allocations: 48205)
+
+
+Started GET "/movies/her-4/edit" for 127.0.0.1 at 2024-09-13 23:20:28 +0100
+  
+SyntaxError (/Users/muhammadibnsalyhu/Code/EcoSearch_Team/Eco/movies/app/controllers/movies_controller.rb:5: syntax error, unexpected [, expecting `do' or '{' or '('
+...fore_action :find_movie, only [:show, :edit, :update, :destr...
+...                              ^
+):
+  
+app/controllers/movies_controller.rb:5: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/movies/her-4/edit" for 127.0.0.1 at 2024-09-13 23:22:23 +0100
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"her-4"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:90:in `find_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.8ms | Allocations: 214)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  [1m[36mCategory Pluck (0.5ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 36.2ms | Allocations: 12100)
+  Rendered movies/edit.erb within layouts/application (Duration: 37.7ms | Allocations: 12344)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 15.0ms | Allocations: 2741)
+  Rendered layouts/_flash.erb (Duration: 2.0ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 83.1ms | Allocations: 30902)
+Completed 200 OK in 152ms (Views: 78.1ms | ActiveRecord: 28.2ms | Allocations: 48040)
+
+
+Started GET "/movies/her-4/registrations" for 127.0.0.1 at 2024-09-13 23:29:52 +0100
+Processing by RegistrationsController#index as HTML
+  Parameters: {"movie_id"=>"her-4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:66:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/index.html.erb within layouts/application
+  Rendered registrations/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1265)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 1357)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 17.8ms | Allocations: 20819)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+    1: <h1>Registrations for <%= link_to @movie.name, movie_path(@movie) %></h1>
+    2: 
+    3: <% @registrations.each do |registration| %>
+    4: <div class="summary" >  
+  
+app/views/registrations/index.html.erb:1
+Started GET "/movies/her-4/registrations" for 127.0.0.1 at 2024-09-13 23:31:13 +0100
+Processing by RegistrationsController#index as HTML
+  Parameters: {"movie_id"=>"her-4"}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (1.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:66:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/index.html.erb within layouts/application
+  Rendered registrations/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1239)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1331)
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 105.7ms | Allocations: 18784)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+    1: <h1>Registrations for <%= link_to @movie.name, movie_path(@movie) %></h1>
+    2: 
+    3: <% @registrations.each do |registration| %>
+    4: <div class="summary" >  
+  
+app/views/registrations/index.html.erb:1
+Started GET "/movies/her-4/registrations" for 127.0.0.1 at 2024-09-13 23:35:53 +0100
+Processing by RegistrationsController#index as HTML
+  Parameters: {"movie_id"=>"her-4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:66:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/index.html.erb within layouts/application
+  Rendered registrations/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1237)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1329)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 8.4ms | Allocations: 18759)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+    1: <h1>Registrations for <%= link_to @movie.name, movie_path(@movie) %></h1>
+    2: 
+    3: <% @registrations.each do |registration| %>
+    4: <div class="summary" >  
+  
+app/views/registrations/index.html.erb:1
+Started GET "/movies/her-4/registrations" for 127.0.0.1 at 2024-09-13 23:40:41 +0100
+Processing by RegistrationsController#index as HTML
+  Parameters: {"movie_id"=>"her-4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:69:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/index.html.erb within layouts/application
+  Rendered registrations/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1235)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1327)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 11.9ms | Allocations: 18736)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+    1: <h1>Registrations for <%= link_to @movie.name, movie_path(@movie) %></h1>
+    2: 
+    3: <% @registrations.each do |registration| %>
+    4: <div class="summary" >  
+  
+app/views/registrations/index.html.erb:1
+Started POST "/movies/her-4/likes" for 127.0.0.1 at 2024-09-13 23:40:52 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie_id"=>"her-4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:14:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+  [1m[36mLike Create (15.0ms)[0m  [1m[32mINSERT INTO "likes" ("movie_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 14], ["user_id", 11], ["created_at", "2024-09-13 22:40:52.722466"], ["updated_at", "2024-09-13 22:40:52.722466"]]
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 20.8ms | Allocations: 9131)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/likes_controller.rb:16:in `create'
+Started POST "/movies/her-4/likes" for 127.0.0.1 at 2024-09-14 07:03:30 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie_id"=>"her-4"}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (8.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `create'
+Completed 404 Not Found in 826ms (ActiveRecord: 134.4ms | Allocations: 13391)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with 'id'=her-4):
+  
+app/controllers/likes_controller.rb:13:in `create'
+Started POST "/movies/her-4/likes" for 127.0.0.1 at 2024-09-14 07:04:35 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie_id"=>"her-4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (7.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:14:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+  [1m[36mLike Create (23.1ms)[0m  [1m[32mINSERT INTO "likes" ("movie_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 14], ["user_id", 11], ["created_at", "2024-09-14 06:04:35.873215"], ["updated_at", "2024-09-14 06:04:35.873215"]]
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 94.1ms | Allocations: 22724)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/likes_controller.rb:16:in `create'
+Started POST "/movies/her-4/likes" for 127.0.0.1 at 2024-09-14 07:05:40 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie_id"=>"her-4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:14:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+  [1m[36mLike Create (2.6ms)[0m  [1m[32mINSERT INTO "likes" ("movie_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 14], ["user_id", 11], ["created_at", "2024-09-14 06:05:41.230526"], ["updated_at", "2024-09-14 06:05:41.230526"]]
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:15:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 21.2ms | Allocations: 22699)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/likes_controller.rb:16:in `create'
+Started GET "/movies/her-4/registrations" for 127.0.0.1 at 2024-09-14 07:09:29 +0100
+Processing by RegistrationsController#index as HTML
+  Parameters: {"movie_id"=>"her-4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:66:in `set_movie_id'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:66:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/index.html.erb within layouts/application
+  Rendered registrations/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1235)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1327)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 12.1ms | Allocations: 19213)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+    1: <h1>Registrations for <%= link_to @movie.name, movie_path(@movie) %></h1>
+    2: 
+    3: <% @registrations.each do |registration| %>
+    4: <div class="summary" >  
+  
+app/views/registrations/index.html.erb:1
+Started GET "/movies/her-4" for 127.0.0.1 at 2024-09-14 13:20:20 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"her-4"}
+  [1m[36mMovie Load (2.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mUser Load (36.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mLike Load (6.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (12.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:58:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 129.6ms | Allocations: 12393)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 12.3ms | Allocations: 2741)
+  Rendered layouts/_flash.erb (Duration: 0.7ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 285.1ms | Allocations: 30863)
+Completed 200 OK in 513ms (Views: 264.7ms | ActiveRecord: 121.6ms | Allocations: 56124)
+
+
+Started GET "/movies/her-4/registrations" for 127.0.0.1 at 2024-09-14 13:20:29 +0100
+Processing by RegistrationsController#index as HTML
+  Parameters: {"movie_id"=>"her-4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:128:in `set_movie_id'
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/index.html.erb within layouts/application
+  [1m[36mRegistration Load (0.4ms)[0m  [1m[34mSELECT "registrations".* FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/registrations/index.html.erb:3
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/registrations/index.html.erb:8
+  Rendered registrations/index.html.erb within layouts/application (Duration: 27.3ms | Allocations: 6326)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 9.4ms | Allocations: 2220)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 9903)
+Completed 200 OK in 55ms (Views: 41.9ms | ActiveRecord: 1.2ms | Allocations: 11545)
+
+
+Started POST "/movies/her-4/likes" for 127.0.0.1 at 2024-09-14 13:20:42 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie_id"=>"her-4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:39:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:40:in `create'
+  [1m[36mLike Create (8.0ms)[0m  [1m[32mINSERT INTO "likes" ("movie_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 44], ["user_id", 11], ["created_at", "2024-09-14 12:20:42.148270"], ["updated_at", "2024-09-14 12:20:42.148270"]]
+  ↳ app/controllers/likes_controller.rb:40:in `create'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:40:in `create'
+Redirected to http://127.0.0.1:3000/movies/her-4
+Completed 302 Found in 55ms (ActiveRecord: 15.4ms | Allocations: 6303)
+
+
+Started GET "/movies/her-4" for 127.0.0.1 at 2024-09-14 13:20:42 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"her-4"}
+  [1m[36mMovie Load (3.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "her-4"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:9
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 44]]
+  ↳ app/models/movie.rb:58:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 24.5ms | Allocations: 5978)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 9.6ms | Allocations: 2219)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 40.1ms | Allocations: 9416)
+Completed 200 OK in 73ms (Views: 39.8ms | ActiveRecord: 5.1ms | Allocations: 12745)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2024-09-14 14:05:35 +0100
+Processing by MoviesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.9ms | Allocations: 214)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 37.6ms | Allocations: 11129)
+  Rendered movies/new.erb within layouts/application (Duration: 39.1ms | Allocations: 11364)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.1ms | Allocations: 2743)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered layout layouts/application.html.erb (Duration: 78.6ms | Allocations: 29942)
+Completed 200 OK in 177ms (Views: 82.0ms | ActiveRecord: 17.4ms | Allocations: 47510)
+
+
+Started POST "/movies" for 127.0.0.1 at 2024-09-14 14:08:04 +0100
+Processing by MoviesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Crystal Hackaton", "release_year"=>"2024", "actor"=>"Muhammad", "starts_at"=>"2024-09-28T21:00", "description"=>"Best Dev Selection.", "producer"=>"Muhammad", "net_worth"=>"230000000", "price"=>"250", "capacity"=>"20", "image_file_name"=>"placeholder.jpg", "category_ids"=>["", "1", "4"]}, "commit"=>"Create Movie"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2)[0m  [["id", 1], ["id", 4]]
+  ↳ app/controllers/movies_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 AND "categories"."id" != $2 LIMIT $3[0m  [["name", "Action"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 AND "categories"."id" != $2 LIMIT $3[0m  [["name", "Scifi"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Crystal Hackaton"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (15.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.erb within layouts/application
+  Rendered movies/shared/_errors.html.erb (Duration: 0.4ms | Allocations: 318)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/movies/partials/_form.html.erb:57
+  Rendered movies/partials/_form.html.erb (Duration: 11.4ms | Allocations: 4469)
+  Rendered movies/new.erb within layouts/application (Duration: 12.1ms | Allocations: 4536)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.5ms | Allocations: 2330)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 8205)
+Completed 422 Unprocessable Content in 96ms (Views: 23.9ms | ActiveRecord: 40.3ms | Allocations: 18500)
+
+
+Started POST "/movies" for 127.0.0.1 at 2024-09-14 14:09:00 +0100
+Processing by MoviesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"name"=>"Crystal Hackaton", "release_year"=>"2024", "actor"=>"Muhammad", "starts_at"=>"2024-09-28T21:00", "description"=>"Best Dev Selection based on their coding skills, collaboration and problem solving.", "producer"=>"Muhammad", "net_worth"=>"230000000", "price"=>"250", "capacity"=>"20", "image_file_name"=>"placeholder.jpg", "category_ids"=>["", "1", "4"]}, "commit"=>"Create Movie"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2)[0m  [["id", 1], ["id", 4]]
+  ↳ app/controllers/movies_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mCategory Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 AND "categories"."id" != $2 LIMIT $3[0m  [["name", "Action"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mCategory Exists? (17.6ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 AND "categories"."id" != $2 LIMIT $3[0m  [["name", "Scifi"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mMovie Exists? (84.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."name" = $1 LIMIT $2[0m  [["name", "Crystal Hackaton"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mMovie Create (108.7ms)[0m  [1m[32mINSERT INTO "movies" ("name", "actor", "price", "created_at", "updated_at", "producer", "net_worth", "release_year", "starts_at", "description", "image_file_name", "capacity", "slug") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Crystal Hackaton"], ["actor", "Muhammad"], ["price", "250.0"], ["created_at", "2024-09-14 13:09:00.576557"], ["updated_at", "2024-09-14 13:09:00.576557"], ["producer", "Muhammad"], ["net_worth", "230000000"], ["release_year", "2024"], ["starts_at", "2024-09-28 21:00:00"], ["description", "Best Dev Selection based on their coding skills, collaboration and problem solving."], ["image_file_name", "placeholder.jpg"], ["capacity", 20], ["slug", "crystal-hackaton"]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mCategorization Create (6.6ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 54], ["category_id", 1], ["created_at", "2024-09-14 13:09:00.689513"], ["updated_at", "2024-09-14 13:09:00.689513"]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mCategorization Create (0.4ms)[0m  [1m[32mINSERT INTO "categorizations" ("movie_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["movie_id", 54], ["category_id", 4], ["created_at", "2024-09-14 13:09:00.698359"], ["updated_at", "2024-09-14 13:09:00.698359"]]
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:69:in `create'
+Redirected to http://127.0.0.1:3000/movies/crystal-hackaton
+Completed 302 Found in 252ms (ActiveRecord: 224.5ms | Allocations: 9071)
+
+
+Started GET "/movies/crystal-hackaton" for 127.0.0.1 at 2024-09-14 14:09:00 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"crystal-hackaton"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "crystal-hackaton"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "crystal-hackaton"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "crystal-hackaton"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."slug" = $1 LIMIT $2[0m  [["slug", "crystal-hackaton"], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:91:in `find_movie'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."movie_id" = $2 LIMIT $3[0m  [["user_id", 11], ["movie_id", 54], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Count (4.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "likes" ON "users"."id" = "likes"."user_id" WHERE "likes"."movie_id" = $1[0m  [["movie_id", 54]]
+  ↳ app/helpers/likes_helper.rb:11:in `like_or_unlike_count'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 54]]
+  ↳ app/views/movies/show.erb:19
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."movie_id" = $1[0m  [["movie_id", 54]]
+  ↳ app/views/movies/show.erb:22
+  [1m[36mRegistration Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "registrations" WHERE "registrations"."movie_id" = $1[0m  [["movie_id", 54]]
+  ↳ app/models/movie.rb:58:in `sold_out?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered movies/show.erb within layouts/application (Duration: 31.5ms | Allocations: 8463)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 13.4ms | Allocations: 2194)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 51.7ms | Allocations: 11876)
+Completed 200 OK in 93ms (Views: 46.0ms | ActiveRecord: 8.0ms | Allocations: 20152)
+
+

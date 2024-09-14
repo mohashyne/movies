@@ -1,4 +1,8 @@
 class Movie < ApplicationRecord
+
+before_save :set_slug
+
+
 has_many :registrations, dependent: :destroy # dependent destroy will delete the registration attached to the movie to watch, when we call th destroy on the parent
 has_many :likes,  dependent: :destroy
 # has_many :users, through: :likes
@@ -11,7 +15,9 @@ has_many :categories, through: :categorizations
 
 
 
- validates :name, :actor, presence: true
+#  validates :name, :actor, presence: true
+ validates :name, presence: true, uniqueness: true
+ validates :actor, presence: true
  
  validates :description, length: {minimum:25, maximum:100}
 
@@ -51,4 +57,20 @@ scope :recent, ->(max=3) {  past.limit(max) }
  def sold_out?
         (capacity - registrations.size).zero?
       end
+
+
+
+
+
+      def to_param
+        # name.parameterize
+        slug
+      end
+
+      private
+
+      def set_slug
+        self.slug = name.parameterize
+      end
+
 end
